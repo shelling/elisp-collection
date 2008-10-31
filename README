@@ -1,0 +1,7 @@
+=== Introduction ===
+
+Just as its name, elisp collection collects some emacs lisp plugins
+writed for GNU Emacs. You can check out these plugins, put them in
+your ~/.emacs.d/, and require what you need in your ~/.emacs. 
+
+Enjoy please.
