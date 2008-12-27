@@ -5,7 +5,7 @@
 
 ;;; [ introduction ]
 ;;;
-;;; include () {} || "" '' -> => :: /**/
+;;; include () {} || "" '' -> => :: []
 ;;; all functions are interactive
 ;;; => and -> are named by its meaning in Perl
 ;;;
@@ -15,6 +15,12 @@
 ;;;
 
 
+;; quit coding pair
+(defun exit-coding-pair ()
+  (interactive)
+  (forward-char))
+
+(define-key global-map "\M-pl" 'exit-coding-pair)
 
 ;; insert ()
 (defun insert-parenthesis ()
@@ -85,14 +91,6 @@
 
 (define-key global-map "\M-pv" 'insert-tag-pair)
 
-;; insert /**/
-(defun insert-cstyle-comment ()
-  (interactive)
-  (insert "/*  */")
-  (backward-char 3))
-
-(define-key global-map "\M-p/" 'insert-cstyle-comment)
-
 ;; insert <%=  %>
 (defun insert-erb-eval ()
   (interactive)
@@ -116,3 +114,6 @@
   (backward-char))
 
 (define-key global-map "\M-pk" 'insert-key-tag)
+
+
+(provide 'coding-pair)

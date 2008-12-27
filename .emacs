@@ -8,8 +8,8 @@
 
 
 ; === load git-emacs plugin ===
-;(add-to-list 'load-path (expand-file-name "~/.git-emacs"))
-;(require 'git-emacs)
+(add-to-list 'load-path (expand-file-name "~/.git-emacs"))
+(require 'git-emacs)
 
 ; === global variable setting ===
 (setq frame-default-height 36)
