@@ -1,20 +1,17 @@
-; === path and file loading ===
+;; === path and file loading ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
 (require 'ruby-mode)                    ; load ruby-mode.el from debian
 (require 'wb-line-number)               ; wb-line-number plugin
 (require 'color-theme)                  ; color-theme plugin
 (require 'coding-pair)                  ; my config for insert () {} ..etc
 (require 'shebang)
+(require 'mac-frame)
 
-
-; === load git-emacs plugin ===
+;; === load git-emacs plugin ===
 (add-to-list 'load-path (expand-file-name "~/.git-emacs"))
 (require 'git-emacs)
 
-; === global variable setting ===
-(setq frame-default-height 36)
-(setq frame-default-width 120)
-
+;; === global variable setting ===
 (setq auto-mode-alist 
       (append '(("\\.rb\\'" . ruby-mode) 
                 ("\\.rake\\'" . ruby-mode)
@@ -22,32 +19,28 @@
                 ("\\.org\\'" . org-mode)) 
               auto-mode-alist))
 
-; === simple face setting ===
-;(scroll-bar-mode nil)                   ; hidden scroll bar
-;(menu-bar-mode nil)                     ; hidden menu bar
-(mouse-wheel-mode nil)                  ; disable mouse scrolling
-(column-number-mode t)                  ; show column number
-(global-hl-line-mode t)                 ; highlight current line
+;; === simple face setting ===
+(setq transient-mark-mode t                    ;;
+      make-backup-files nil                    ;; not back up file into filename~
+      delete-old-versions t                    ;; kill all filename~
+      global-hl-line-mode t                    ;; highlight current line
+
+      scroll-bar-mode nil                      ;; hidden scroll bar
+      tool-bar-mode nil                        ;; hidden too bar
+      menu-bar-mode nil                        ;; hidden menu bar
+
+      mouse-wheel-mode nil                     ;; disable mouse scrolling
+      column-number-mode t                     ;; show column number
+      indent-tabs-mode nil                     ;; expand tab to set
+      mac-option-modifier 'meta                ;; set mac option as meta
+      line-number-mode t)
+
 (set-face-attribute 'mode-line nil :box nil)
 ; (global-font-lock-mode t)
-(setq default-frame-alist '((width . 120) (height . 36)))
 
-; === simple editing setting ===
-(setq-default indent-tabs-mode nil)     ; expand tab to set
-(setq mac-option-modifier 'meta)        ; set mac option as meta
-
-; === my function ===
-;;;;; write my own emacs lisp function here
-;;;;; if the function block is too rge, move it to 
-(defun mac-frame-max ()
-  (interactive)
-  (set-frame-parameter nil 'fullscreen 
-    (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
-
-(defun mac-frame-default ()
-  (interactive)
-  (set-frame-height nil frame-default-height)
-  (set-frame-width nil frame-default-width))
+;; === my function ===
+;; write my own emacs lisp function here
+;; if the function block is too rge, move it to 
 
 (defun join-line-below ()
   (interactive)
@@ -60,28 +53,24 @@
   (delete-frame)
   ()))
 
-; === remapping key ===
-;;;;; global mapping shortcut here
+;; === remapping key ===
+;; global mapping shortcut here
 (define-key global-map "\C-j" 'join-line-below);; redefine key C-j from 'eval-print-last-sexp to 'join-line-below
 (define-key global-map "\M-!" 'shell)          ;; redefine key M-! to 'shell
 (define-key global-map "\C-xl" 'wb-line-number-toggle)
 (define-key global-map "\C-xk" 'kill-buffer-and-frame)
 
-; === unclassify ===
-;;;;; undefined 
-(setq transient-mark-mode t)
-
+;; === unclassify ===
 (custom-set-variables
-    '(tool-bar-mode nil nil (tool-bar))        ;; hidden x-window tool-bar
-    '(scroll-bar-mode nil nil (scroll-bar))    ;; hidden x-window scroll-bar
-;    '(auto-save-mode nil)
-;    '(cua-mode t nil (cua-base))
+    '(tool-bar-mode nil nil (tool-bar))        ;; hidden tool-bar
+    '(scroll-bar-mode nil nil (scroll-bar))    ;; hidden scroll-bar
+    '(menu-bar-mode nil nil (menu-bar))        ;; hidden menu-bar
+;    '(auto-save-mode nil)                     ;; forbidden auto-save
+;    '(cua-mode t nil (cua-base))              ;; using C-x, C-c, C-v to cut, copy and paste
 )
 
 
-; === final called function ===
-;;;;; all appended function from plugin should be called here.
+;; === final called function ===
 ;(wb-line-number-enable)
 (color-theme-dark-laptop)
-(mac-frame-default)
 (custom-set-faces)
