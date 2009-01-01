@@ -1,9 +1,13 @@
 ;; === path and file loading ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
+
+;; === third part plugins ===
 (require 'ruby-mode)                    ; load ruby-mode.el from debian
 (require 'wb-line-number)               ; wb-line-number plugin
 (require 'color-theme)                  ; color-theme plugin
-(require 'coding-pair)                  ; my config for insert () {} ..etc
+
+;; === my configure ===
+(require 'coding-pair)
 (require 'shebang)
 (require 'mac-frame)
 
@@ -23,13 +27,13 @@
 (setq transient-mark-mode t                    ;; highlight marked region
       make-backup-files nil                    ;; not back up file into filename~
       delete-old-versions t                    ;; kill all filename~
-      mouse-wheel-mode nil                     ;; disable mouse scrolling
+;      mouse-wheel-mode nil                     ;; disable mouse scrolling
       column-number-mode t                     ;; show column number
       indent-tabs-mode nil                     ;; expand tab to set
       mac-option-modifier 'meta                ;; set mac option as meta
       line-number-mode t)
 
-(global-hl-line-mode t)                    ;; highlight current line
+(global-hl-line-mode t)                        ;; highlight current line
 (set-face-attribute 'mode-line nil :box nil)
 ; (global-font-lock-mode t)
 
@@ -60,8 +64,6 @@
 ;    '(cua-mode t nil (cua-base))              ;; using C-x, C-c, C-v to cut, copy and paste
 )
 
-
 ;; === final called function ===
-;(wb-line-number-enable)
 (custom-set-faces)
 (color-theme-dark-laptop)
