@@ -1,16 +1,23 @@
 ;; === path and file loading ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
 
-;; === third part plugins ===
-(require 'ruby-mode)                    ; load ruby-mode.el from debian
+;; === single file, third part plugins ===
 (require 'wb-line-number)               ; wb-line-number plugin
 (require 'color-theme)                  ; color-theme plugin
 (require 'css-mode)
 
 ;; === my configure ===
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/shelling/"))
 (require 'coding-pair)
 (require 'shebang)
 (require 'mac-frame)
+
+;; === require ruby-mode relative file ===
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/ruby-mode/"))
+(require 'ruby-mode)                    ; load ruby-mode.el from http://svn.ruby-lang.org/repos/ruby/trunk/misc/
+(require 'ruby-electric)
+(require 'inf-ruby)
+(require 'ruby-style)
 
 ;; === emacs-rails plugin ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-rails-deps"))
@@ -50,7 +57,7 @@
     '(tool-bar-mode nil nil (tool-bar))        ;; hidden tool-bar
     '(scroll-bar-mode nil nil (scroll-bar))    ;; hidden scroll-bar
     '(menu-bar-mode nil nil (menu-bar))        ;; hidden menu-bar
-    '(setq transient-mark-mode t)              ;; highlight marked region
+    '(transient-mark-mode t)                   ;; highlight marked region
 
     '(auto-save-mode nil)                      ;; forbidden auto-save
     '(global-hl-line-mode t)                   ;; highlight current line
