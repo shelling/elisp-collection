@@ -2,6 +2,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
 
 ;; === single file, third part plugins ===
+(require 'vc-git)
 (require 'wb-line-number)               ; wb-line-number plugin
 (require 'color-theme)                  ; color-theme plugin
 (require 'css-mode)
@@ -19,6 +20,10 @@
 (require 'inf-ruby)
 (require 'ruby-style)
 
+;; == require yaml-mode ===
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/yaml-mode/"))
+(require 'yaml-mode)
+
 ;; === emacs-rails plugin ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-rails-deps"))
 (require 'emacs-rails-deps)
@@ -31,6 +36,8 @@
                 ("\\.rake\\'" . ruby-mode)
                 ("\\rakefile\\'" . ruby-mode)
                 ("\\.org\\'" . org-mode)
+                ("\\.yml\\'" . yaml-mode)
+                ("\\.yaml\\'" . yaml-mode)
                 ("\\.css\\'" . css-mode))
               auto-mode-alist))
 
