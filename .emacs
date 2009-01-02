@@ -6,6 +6,7 @@
 (require 'wb-line-number)               ; wb-line-number plugin
 (require 'color-theme)                  ; color-theme plugin
 (require 'css-mode)
+(require 'javascript-mode)
 
 ;; === my configure ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/shelling/"))
@@ -20,9 +21,10 @@
 (require 'inf-ruby)
 (require 'ruby-style)
 
-;; == require yaml-mode ===
+;; === require yaml-mode ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/yaml-mode/"))
 (require 'yaml-mode)
+
 
 ;; === emacs-rails plugin ===
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-rails-deps"))
@@ -38,6 +40,8 @@
                 ("\\.org\\'" . org-mode)
                 ("\\.yml\\'" . yaml-mode)
                 ("\\.yaml\\'" . yaml-mode)
+                ("\\.js$" . javascript-mode)
+                ("\\.bash\\\\'" . shell-script-mode)
                 ("\\.css\\'" . css-mode))
               auto-mode-alist))
 
@@ -53,7 +57,7 @@
   (if (kill-buffer nil)
       (delete-frame)
       ()))
-(define-key global-map "\C-xk" 'kill-buffer-and-frame)
+;; (define-key global-map "\C-xk" 'kill-buffer-and-frame)
 
 ;; === remapping key ===
 (define-key global-map "\M-!" 'shell)          ;; redefine key M-! to 'shell
