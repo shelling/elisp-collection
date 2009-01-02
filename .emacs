@@ -7,18 +7,28 @@
 (require 'color-theme)                  ; color-theme plugin
 (require 'css-mode)
 
+
 ;; === my configure ===
 (require 'coding-pair)
 (require 'shebang)
 (require 'mac-frame)
 
+;; === emacs-rails plugin ===
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-rails-deps"))
+(require 'snippet)
+(require 'inf-ruby)
+(require 'find-recursive)
+(require 'ruby-electric)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/emacs-rails"))
+(require 'rails)
+
 ;; === major mode confiure ===
-(setq auto-mode-alist 
-      (append '(("\\.rb\\'" . ruby-mode) 
+(setq auto-mode-alist
+      (append '(("\\.rb\\'" . ruby-mode)
                 ("\\.rake\\'" . ruby-mode)
                 ("\\rakefile\\'" . ruby-mode)
                 ("\\.org\\'" . org-mode)
-		("\\.css\\'" . css-mode))
+                ("\\.css\\'" . css-mode))
               auto-mode-alist))
 
 ;; === simple face setting ===
