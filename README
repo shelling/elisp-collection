@@ -9,6 +9,8 @@ Enjoy please.
 === Included Third Party Plugins ===
 
 css-mode
+    http://www.emacswiki.org/cgi-bin/emacs/css-mode-simple.el
+    http://www.emacswiki.org/emacs/css-mode.el
 
 javascript-mode
     http://mihai.bazon.net/projects/emacs-javascript-mode
@@ -19,16 +21,18 @@ ruby-mode
     http://www.emacswiki.org/emacs/RubyMode
 
 yaml-mode
-
+    http://www.emacswiki.org/cgi-bin/wiki/YamlMode
 
 emacs-rails
     http://www.emacswiki.org/emacs/RubyOnRails
     http://wiki.rubyonrails.org/rails/pages/HowtoUseEmacsWithRails
 
 wb-line-number
-
+    http://homepage1.nifty.com/blankspace/emacs/elisp.html
 
 color-theme
+    http://www.emacswiki.org/emacs/ColorTheme
+    http://download.gna.org/color-theme/
 
 
 === My Own Plugins ===
@@ -38,3 +42,5 @@ syntax-snippet
 
 === Misc ===
 http://rinari.rubyforge.org/Add-Ons.html#Add-Ons
+http://www.emacswiki.org/emacs/WikifiedEmacsLispList
+
