@@ -5,3 +5,36 @@ writed for GNU Emacs. You can check out these plugins, put them in
 your ~/.emacs.d/, and require what you need in your ~/.emacs. 
 
 Enjoy please.
+
+=== Included Third Party Plugins ===
+
+css-mode
+
+javascript-mode
+    http://mihai.bazon.net/projects/emacs-javascript-mode
+    http://www.emacswiki.org/cgi-bin/wiki/JavaScriptMode
+
+ruby-mode
+    http://svn.ruby-lang.org/repos/ruby/trunk/misc/
+    http://www.emacswiki.org/emacs/RubyMode
+
+yaml-mode
+
+
+emacs-rails
+    http://www.emacswiki.org/emacs/RubyOnRails
+    http://wiki.rubyonrails.org/rails/pages/HowtoUseEmacsWithRails
+
+wb-line-number
+
+
+color-theme
+
+
+=== My Own Plugins ===
+
+syntax-snippet
+
+
+=== Misc ===
+http://rinari.rubyforge.org/Add-Ons.html#Add-Ons
