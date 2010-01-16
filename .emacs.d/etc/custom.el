@@ -29,7 +29,7 @@
         (height . 53)))
 
 (setq initial-frame-alist
-      '((top . 30)
+      '((top . 26)
         (left . 350)
         (width . 120)
         (height . 53)))
