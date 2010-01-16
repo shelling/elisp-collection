@@ -2,13 +2,19 @@
 require "rubygems"
 require "rake"
 
-FileList[]
 
-task :update do
+namespace :interval do
+  task :purge do
+    sh "rm -rf .emacs*"
+  end
+end
 
+task :update => ["interval:purge"] do
+  sh "cp ~/.emacs ./"
+  sh "cp -r ~/.emacs.d ./"
 end
 
 
-take :install do
+task :install do
 
 end
