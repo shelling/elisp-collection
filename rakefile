@@ -1,4 +1,4 @@
-
+-*- mode: ruby -*-
 require "rubygems"
 require "rake"
 
