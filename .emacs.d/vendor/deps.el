@@ -9,6 +9,7 @@
 (require 'square-braces-as-parens) ;; run-guile
 (require 'set-keys)                ;; run-guile
 (require 'map-table)               ;; run-guile
+(require 'sym-comp)                ;; python.el in emacs 22
 
 ;; provide symbol
 (provide 'deps)
