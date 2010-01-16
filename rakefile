@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
--*- mode: ruby -*-
+# -*- mode: ruby -*-
 require "rubygems"
 require "rake"
 
