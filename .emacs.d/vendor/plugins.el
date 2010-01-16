@@ -20,5 +20,8 @@
 
 (require 'rect-mark)
 
+(require 'folding)
+;; (require 'folding-isearch)
+
 ;; provide symbol
 (provide 'plugins)
