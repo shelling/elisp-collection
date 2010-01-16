@@ -15,5 +15,4 @@
               auto-mode-alist))
 
 (add-to-list 'interpreter-mode-alist
-             '(("\\.ruby\\'" . ruby-mode)
-               ("ruby" . ruby-mode)))
+             '("ruby" . ruby-mode))
