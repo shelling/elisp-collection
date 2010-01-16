@@ -18,5 +18,7 @@
 (require 'mercurial)
 (require 'vc-hg)
 
+(require 'rect-mark)
+
 ;; provide symbol
 (provide 'plugins)
