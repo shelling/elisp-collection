@@ -15,5 +15,16 @@
               auto-mode-alist))
 
 (add-to-list 'interpreter-mode-alist
-             '("perl" . cperl-mode))(nconc interpreter-mode-alist
+             '("perl" . cperl-mode))
+
+;; (setq interpreter-mode-alist
+;;       (append '(("scheme" . scheme-mode)
+;;                 ("guile" . scheme-mode))
+;;               interpreter-mode-alist))
+
+(nconc interpreter-mode-alist
+       '(("scheme" . scheme-mode)
+         ("guile" . scheme-mode)
+         ("ruby" . ruby-mode)
+;;          ("perl" . cperl-mode)
          ("erl" . erlang-mode)))
