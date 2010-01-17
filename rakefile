@@ -18,5 +18,7 @@ end
 
 
 task :install do
-
+  sh "cp ./.emacs ~/"                                                                                                                                                                                     
+  sh "cp -r ./.emacs.d ~/"
+  sh "cp ./.emacs_bash ~/"
 end
