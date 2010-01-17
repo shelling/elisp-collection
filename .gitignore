@@ -1,4 +1,4 @@
 auto-save-list
-.emacs.d/tramp
+tramp
 *.elc
 .svn

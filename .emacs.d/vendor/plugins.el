@@ -6,6 +6,16 @@
 (require 'line-num)                     ; show line number in the same window
 (require 'color-theme)                  ; general color setting solution
 (require 'redo)                         ; need key mapping
+(require 'run-guile)
+(require 'rect-mark)
+
+(require 'mercurial)
+(require 'vc-hg)
+
+(require 'folding)
+;; (require 'folding-isearch)
+
+
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails"))
 (require 'rails)                        ; rails integrate environment
@@ -13,15 +23,6 @@
 ;;   snippet.el
 ;;   find-recursive.el
 
-(require 'run-guile)
-
-(require 'mercurial)
-(require 'vc-hg)
-
-(require 'rect-mark)
-
-(require 'folding)
-;; (require 'folding-isearch)
 
 
 
