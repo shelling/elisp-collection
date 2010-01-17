@@ -27,5 +27,5 @@
 
 
 (defmacro inc (var)
-  ;; simple macro definition
+  ;; simple macro definition example
   (list 'setq var (list '+ 1 var)))
