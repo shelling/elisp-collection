@@ -18,8 +18,7 @@
 
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/"))
-;; (require 'rails)
-(load-file (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/rails.el"))
+(require 'rails)
 ;; Depend on:
 ;;   snippet.el
 ;;   find-recursive.el
