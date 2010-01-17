@@ -22,18 +22,18 @@
 
 
 ;; default frame setting
-(setq frame-default-height 53
-      frame-default-width 120)          ;; my own convention variables
+;; (setq frame-default-height 53
+;;       frame-default-width 120)          ;; my own convention variables
 
-(setq default-frame-alist
-      '((width . 120)
-        (height . 53)))
+(defvar frame-setting-mbp
+  '((top . 26)
+    (left . 350)
+    (width . 120)
+    (height . 53)))
 
-(setq initial-frame-alist
-      '((top . 26)
-        (left . 350)
-        (width . 120)
-        (height . 53)))
+(setq default-frame-alist frame-setting-mbp)
+
+(setq initial-frame-alist frame-setting-mbp)
 
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
