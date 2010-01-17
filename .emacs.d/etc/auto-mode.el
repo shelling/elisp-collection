@@ -15,4 +15,4 @@
               auto-mode-alist))
 
 (add-to-list 'interpreter-mode-alist
-             '("ruby" . ruby-mode))
+             '("perl" . cperl-mode))
