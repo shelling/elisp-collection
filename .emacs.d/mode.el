@@ -14,6 +14,7 @@
 ;;     http://cpan.perl.org/misc/emacs/
 ;;     http://math.berkeley.edu/~ilya/software/emacs/
 ;;     http://github.com/jrockway/cperl-mode/tree/master
+(require 'sgml-mode)
 
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/yaml-mode/"))
