@@ -20,6 +20,12 @@
 ;; __PARTIAL_CUSTOM__
 ;; __END__ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; __COMPILE_ALL_EL_
+;; (byte-compile-file (expand-file-name "~/.emacs"))
+;; should solve problem that color-theme-railscasts isn't defined at startup
+(recompile-emacs.d)
+;; __END__
+
 ;; __CALL_COLOR_THEME__
 (color-theme-initialize)
 
