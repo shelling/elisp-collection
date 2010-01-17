@@ -11,6 +11,7 @@
     '(line-number-mode t)                      ;; show line number
     '(indent-tabs-mode nil)                    ;; expand tab to set
     '(mac-option-modifier 'meta)               ;; set mac option as meta
+    '(mac-command-modifier 'hyper)
 ;;     '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
 )
 

@@ -29,5 +29,9 @@
 ;;     http://svn.ruby-lang.org/repos/ruby/trunk/misc/
 ;;
 
+
+(require 'erlang)
+;; http://www.erlang.org/download/contrib/erlang.el
+
 ;; provide symbol
 (provide 'mode)
