@@ -15,4 +15,5 @@
               auto-mode-alist))
 
 (add-to-list 'interpreter-mode-alist
-             '("perl" . cperl-mode))
+             '("perl" . cperl-mode))(nconc interpreter-mode-alist
+         ("erl" . erlang-mode)))
