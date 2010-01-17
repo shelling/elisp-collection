@@ -23,7 +23,20 @@
 (require 'folding)
 ;; (require 'folding-isearch)
 
-(require 'elisp-cache)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; temporary obsolete plugins    ;;
+;; unmask section to reboot them ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; (require 'elisp-cache)
+;; ;; not yet set the cache direcotry
+;; ;; not a convenient plugin
+
+;; (require 'byte-code-cache)
+;; ;; should be loaded before other plugin to compile them
+;; ;; not a convenient plugin
 
 ;; provide symbol
 (provide 'plugins)

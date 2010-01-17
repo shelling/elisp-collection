@@ -10,6 +10,5 @@
 (load-file "~/.emacs.d/etc/binding.el") ;; keybinding
 (load-file "~/.emacs.d/etc/auto-mode.el") ;; more relationshup between extensions filename and major mode
 
-
 ;; provide symbol
 (provide 'etc)
