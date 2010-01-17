@@ -23,5 +23,7 @@
 (require 'folding)
 ;; (require 'folding-isearch)
 
+(require 'elisp-cache)
+
 ;; provide symbol
 (provide 'plugins)
