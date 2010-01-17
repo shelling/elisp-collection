@@ -15,6 +15,17 @@
       (delete-frame)
       ()))
 
+(defun recompile-emacs.d ()
+  "recompile ~/.emacs.d/, only modified files. also compile these files corresponding no .elc"
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d/") 0))
+
+(defun recompile-emacs.d-force ()
+  "the same as recompile-emacs.d, force version"
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d/") 0 t))
+
+
 (defmacro inc (var)
   ;; simple macro definition
   (list 'setq var (list '+ 1 var)))
