@@ -30,6 +30,10 @@
 ;;     http://svn.ruby-lang.org/repos/ruby/trunk/misc/
 ;;
 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/rhtml-mode/"))
+(require 'rhtml-mode)
+;; http://github.com/eschulte/rhtml
+
 
 (require 'erlang)
 ;; http://www.erlang.org/download/contrib/erlang.el
