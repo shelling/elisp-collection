@@ -5,6 +5,11 @@
 (add-to-list 'load-path
              (expand-file-name "~/.emacs.d/etc/"))
 
+;; (require 'custom)
+;; (require 'defun)
+;; (require 'binding)
+;; (require 'auto-mode)
+
 (load-file "~/.emacs.d/etc/custom.el")  ;; personal setting
 (load-file "~/.emacs.d/etc/defun.el")   ;; misc personal function
 (load-file "~/.emacs.d/etc/binding.el") ;; keybinding

@@ -22,3 +22,5 @@
 
 ;;
 ;; (define-key global-map "\M-RET" 'dired-find-file-other-window)
+
+(provide 'binding)

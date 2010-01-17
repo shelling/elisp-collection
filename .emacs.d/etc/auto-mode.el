@@ -5,6 +5,7 @@
       (append '(("\\.rb\\'" . ruby-mode)
                 ("\\.rake\\'" . ruby-mode)
                 ("\\rakefile\\'" . ruby-mode)
+                ("\\.rhtml\\'" . rhtml-mode)
                 ("\\.org\\'" . org-mode)
                 ("\\.yml\\'" . yaml-mode)
                 ("\\.yaml\\'" . yaml-mode)
@@ -28,3 +29,5 @@
          ("ruby" . ruby-mode)
 ;;          ("perl" . cperl-mode)
          ("erl" . erlang-mode)))
+
+(provide 'auto-mode)

@@ -17,13 +17,12 @@
 
 
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails"))
-(require 'rails)                        ; rails integrate environment
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/"))
+;; (require 'rails)
+(load-file (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/rails.el"))
 ;; Depend on:
 ;;   snippet.el
 ;;   find-recursive.el
-
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
