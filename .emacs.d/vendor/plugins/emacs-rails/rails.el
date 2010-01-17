@@ -33,8 +33,11 @@
            emacs-major-version
            emacs-minor-version)))
 
+(require 'speedbar)
+
 (eval-when-compile
   (require 'speedbar)
+  (require 'rails-speedbar-feature)
   (require 'inf-ruby)
   (require 'ruby-mode)
   (require 'ruby-electric))
