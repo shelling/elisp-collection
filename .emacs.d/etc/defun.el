@@ -16,12 +16,17 @@
       ()))
 
 (defun recompile-emacs.d ()
+  "recompile ~/.emacs.d/"
+  (interactive)
+  (byte-recompile-directory (expand-file-name "~/.emacs.d/")))
+
+(defun recompile-emacs.d-all ()
   "recompile ~/.emacs.d/, only modified files. also compile these files corresponding no .elc"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d/") 0))
 
 (defun recompile-emacs.d-force ()
-  "the same as recompile-emacs.d, force version"
+  "the same as recompile-emacs.d-all, force version"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d/") 0 t))
 
