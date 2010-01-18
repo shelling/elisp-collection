@@ -5,3 +5,5 @@ tramp
 .git
 .hg
 *~
+.old
+.bak
