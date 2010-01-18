@@ -40,7 +40,7 @@
 ;;
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/rhtml-mode/"))
-(autoload 'rhtml-mode "rhtml-mode" "rhtml Major Mode" t)
+;; (autoload 'rhtml-mode "rhtml-mode" "rhtml Major Mode" t)
 ;; http://github.com/eschulte/rhtml
 
 
