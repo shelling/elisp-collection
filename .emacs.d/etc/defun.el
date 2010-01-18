@@ -15,6 +15,7 @@
       (delete-frame)
       ()))
 
+;; __COMPILING_COMVENTION__
 (defun recompile-emacs.d ()
   "recompile ~/.emacs.d/"
   (interactive)
@@ -29,6 +30,23 @@
   "the same as recompile-emacs.d-all, force version"
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d/") 0 t))
+
+
+;; __EXPERIMENTAL__
+(defun sidebar-buffer-list ()
+  "open a sidebar to show buffer list"
+  (interactive)
+  (make-frame '((name . "buffer sidebar")
+                (width . 26)
+                (height . 53)
+                (top . 26)
+                (left . 100)
+                (minibuffer . nil))))
+
+(defun echo (expr)
+  "echo"
+  (interactive "sExpr: ")
+  (message (eval expr)))
 
 
 (defmacro inc (var)

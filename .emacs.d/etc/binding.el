@@ -15,7 +15,8 @@
 
 
 ;; FOR PLUGINS
-(define-key global-map "\C-xl" 'wb-line-number-toggle)
+;; (define-key global-map "\C-xl" 'wb-line-number-toggle)
+(define-key ctl-x-map "l" 'wb-line-number-toggle)
 (global-set-key "\M-z" 'undo)
 (global-set-key "\M-Z" 'redo)
 
