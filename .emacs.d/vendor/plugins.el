@@ -4,7 +4,7 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/"))
 (require 'wb-line-number)               ; show line number in independent window
 (require 'line-num)                     ; show line number in the same window
-(require 'color-theme)                  ; general color setting solution
+
 (require 'redo)                         ; need key mapping
 (require 'run-guile)
 (require 'rect-mark)
@@ -16,12 +16,22 @@
 ;; (require 'folding-isearch)
 
 
-
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/"))
 (require 'rails)
 ;; Depend on:
 ;;   snippet.el
 ;;   find-recursive.el
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;; color theme plugin  ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'color-theme)                  ; general color setting solution
+(color-theme-initialize)
+
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
