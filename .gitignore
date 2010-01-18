@@ -2,3 +2,6 @@ auto-save-list
 tramp
 *.elc
 .svn
+.git
+.hg
+*~
