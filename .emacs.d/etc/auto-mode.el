@@ -12,6 +12,7 @@
                 ("\\.js$" . javascript-mode)
                 ("\\.bash\\\\'" . shell-script-mode)
                 ("\\.css\\'" . css-mode)
+                ("\\.pm\\'" . cperl-mode)
                 ("\\.pl\\'" . cperl-mode))
               auto-mode-alist))
 
