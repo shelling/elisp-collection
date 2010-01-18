@@ -2,21 +2,33 @@
 ;;
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/"))
-(require 'css-mode)
+
+
+(autoload 'css-mode "css-mode.elc" "Major Mode for CSS" t)
 ;; http://www.emacswiki.org/emacs/css-mode.el
-(require 'javascript-mode)
+
+
+(autoload 'javascript-mode "javascript-mode.elc" "Major Mode for Javascript" t)
 ;; http://www.emacswiki.org/emacs/JavaScriptMode
-(require 'cperl-mode)
+
+
+(autoload 'cperl-mode "cperl-mode.elc" "New Perl Major Mode" t)
 ;; http://www.emacswiki.org/cgi-bin/wiki/CPerlMode
 ;; http://cpan.perl.org/misc/emacs/
 ;; http://math.berkeley.edu/~ilya/software/emacs/
 ;; http://github.com/jrockway/cperl-mode/tree/master
-(require 'sgml-mode)
+
+
+(autoload 'sgml-mode "sgml-mode" "SGML Major Mode" t)
 ;; http://shallowsky.com/dotfiles/.emacs-lisp/sgml-mode.el
 
 
+(autoload 'erlang-mode "erlang" "Major Mode for erlang" t)
+;; http://www.erlang.org/download/contrib/erlang.el
+
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/yaml-mode/"))
-(require 'yaml-mode)
+(autoload 'yaml-mode "yaml-mode" "YAML Major Mode" t)
 
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/ruby-mode/"))
@@ -28,12 +40,9 @@
 ;;
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/rhtml-mode/"))
-(require 'rhtml-mode)
+(autoload 'rhtml-mode "rhtml-mode" "rhtml Major Mode" t)
 ;; http://github.com/eschulte/rhtml
 
-
-(require 'erlang)
-;; http://www.erlang.org/download/contrib/erlang.el
 
 ;; provide symbol
 (provide 'mode)
