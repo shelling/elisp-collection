@@ -5,8 +5,8 @@
 ;; Authors: Dmitry Galinsky <dima dot exe at gmail dot com>
 
 ;; Keywords: ruby rails languages oop
-;; $URL: svn+ssh://rubyforge/var/svn/emacs-rails/trunk/rails-log.el $
-;; $Id: rails-log.el 114 2007-03-25 18:15:35Z dimaexe $
+;; $URL$
+;; $Id$
 
 ;;; License
 
@@ -48,6 +48,7 @@
     (start-process "tail"
                    buffer
                    "tail"
+		   "-n" (message "%d" rails-number-of-lines-shown-when-opening-log-file)
                    "-f" (rails-core:file (concat "log/" log-file)))))
 
 (defun rails-log:open (log-file)

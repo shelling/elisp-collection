@@ -263,6 +263,33 @@
        ("flash" "flash[:$${notice}] = '$${Successfully}'$." "flash[...]")) ; environment
     (0 "tests" rails-functional-test-minor-mode-abbrev-table rails-unit-test-minor-mode-abbrev-table
        ("fix" "$${,rails-snippets-feature:fixture}(:$${one})$." "models(:name)")) ; functional tests
+    (0 "shoulda" rails-functional-test-minor-mode-abbrev-table rails-unit-test-minor-mode-abbrev-table
+       ("cont" "context \"$${description}\" do\n$>setup do\n$>$${setup}\nend$>\n\n$>should$.\nend$>" "context block with setup")
+       ("should" "should \"$${description}\" do\n$>$.\nend$>" "should block")
+       ("shoulds" "should \"$${description}\" do\n$>flunk\nend$>\n\n$>shoulds$." "several should blocks")
+       ("shoulde" "should_eventually \"$${description}\" do\n $>$.\nend$>" "should_eventually block")
+       ("shouldes" "should_eventually \"$${description}\"\n$>shouldes$." "several should_eventually statements")
+       ("laf" "load_all_fixtures" "load_all_fixtures")
+       ("sat" "should_assign_to :$${variable}" "should_assign_to")
+       ("savf" "should_allow_values_for :$${attribute}" "should_allow_values_for")
+       ("sbt" "should_belong_to :$${object}" "should_belong_to")
+       ("sbr" "should_be_restful do |$${resource}|\n $>$${resource}.$.\nend$>" "should_be_restful {|resource| ... }")
+       ("selir" "should_ensure_length_in_range :$${attribute}, ($${range})" "should_ensure_length_in_range")
+       ("sevir" "should_ensure_value_in_range :$${attribute}, ($${range})" "should_ensure_value_in_range")
+       ("sho" "should_have_one :$${object}" "should_have_one")
+       ("shabtm" "should_have_and_belong_to_many :$${objects}" "should_have_and_belong_to_many")
+       ("shm" "should_have_many :$${objects}" "should_have_many")
+       ("snstf" "should_not_set_the_flash" "should_not_set_the_flash")
+       ("snat" "should_not_assign_to :$${variable}" "should_not_assign_to")
+       ("snavf" "should_not_allow_values_for :$${attribute}" "should_not_allow_values_for")
+       ("soanvf" "should_only_allow_numeric_values_for :$${attribute}" "should_only_allow_numeric_values_for")
+       ("sraf" "should_render_a_form" "should_render_a_form")
+       ("srdt" "should_redirect_to $${redirect}" "should_redirect_to")
+       ("srt" "should_render_template :$${template}" "should_render_template")
+       ("sra" "should_require_attributes :$${attribute}" "should_require_attributes")
+       ("srua" "should_require_unique_attributes :$${attribute}" "should_require_unique_attributes")
+       ("srw" "should_respond_with :$${response}" "should_respond_with")
+       ("sstft" "should_set_the_flash_to $${value}" "should_set_the_flash_to")) ; shoulda tests
     (0 "assertions" rails-functional-test-minor-mode-abbrev-table rails-unit-test-minor-mode-abbrev-table
        ("art" "assert_redirected_to :action => '$${index}'" "assert_redirected_to")
        ("as" "assert $${test}" "assert(...)")
@@ -386,44 +413,44 @@
   (let ((controller (rails-core:current-controller))
         (model (rails-core:current-model)))
     (cond
-     (controller (downcase controller))
-     (model (pluralize-string (downcase model)))
+     (controller (decamelize controller))
+     (model (pluralize-string (decamelize model)))
      (t "fixture"))))
 
 (defun rails-snippets-feature:model-name ()
   (let ((controller (rails-core:current-controller)))
     (if controller
-        (singularize-string (downcase controller))
+        (singularize-string (decamelize controller))
       "model")))
 
 (defun rails-snippets-feature:rest (action)
   (when-bind
    (controller (rails-core:current-controller))
-   (let* ((plural (downcase (pluralize-string controller)))
-          (singular (downcase (singularize-string controller)))
+   (let* ((plural (decamelize (pluralize-string controller)))
+          (singular (decamelize (singularize-string controller)))
           (model (concat "@" singular)))
      (case action
        (:index
         (tooltip-show (format "GET /%s" plural))
-        (format "%s_url" plural))
+        (format "%s_path" plural))
        (:show
         (tooltip-show (format "GET /%s/1" plural))
-        (format "%s_url(%s)" singular model))
+        (format "%s_path(%s)" singular model))
        (:new
         (tooltip-show (format "GET /%s/new" plural))
-        (format "new_%s_url" singular))
+        (format "new_%s_path" singular))
        (:edit
         (tooltip-show (format "GET /%s/1;edit" plural))
-        (format "edit_%s_url(%s)" singular model))
+        (format "edit_%s_path(%s)" singular model))
        (:create
         (tooltip-show (format "POST /%s" plural))
-        (format "%s_url" plural))
+        (format "%s_path" plural))
        (:update
         (tooltip-show (format "PUT /%s/1" plural))
-        (format "%s_url(%s)" singular model))
+        (format "%s_path(%s)" singular model))
        (:destroy
         (tooltip-show (format "DELETE /%s/1" plural))
-        (format "%s_url(%s)" singular model))))))
+        (format "%s_path(%s)" singular model))))))
 
 (defun rails-snippets-feature:rest-index ()
   (rails-snippets-feature:rest :index))

@@ -32,30 +32,37 @@
   "\\([0-9]+ tests, [0-9]+ assertions, \\([0-9]+\\) failures, \\([0-9]+\\) errors\\)")
 
 (defconst rails-test:progress-regexp
-  "^[\\.EF]+$")
+  "^[.EF]+$")
 
-(defun rails-test:file-ext-regexp ()
-  (let ((rails-templates-list (append rails-templates-list (list "rb"))))
-    (substring (rails-core:regex-for-match-view) 0 -1)))
+(defvar rails-test:font-lock-keywords
+  '(("\\([0-9]+ tests, [0-9]+ assertions, 0 failures, 0 errors\\)"
+     1 compilation-info-face)
+    ("\\([0-9]+ tests, [0-9]+ assertions, [0-9]+ failures, [0-9]+ errors\\)"
+     1 compilation-line-face)
+    ("`\\([a-z0-9_]+\\)'"
+     1 font-lock-function-name-face t)
+    ("^\s+\\([0-9]+)\s+\\(Error\\|Failure\\):\\)"
+     1 compilation-line-face)
+    ("^\\(test_[a-z0-9_]+\\)(\\([a-zA-Z0-9:]+\\)):?$"
+     (1 font-lock-function-name-face)
+     (2 font-lock-type-face))
+    ("^[.EF]+$" . compilation-info-face)))
 
 (defun rails-test:line-regexp (&optional append prepend)
   (concat
    append
-   (format
-    "\\(#{RAILS_ROOT}\/\\)?\\(\\(\\.\\|[A-Za-z]:\\)?\\([a-z/_.]+%s\\)\\):\\([0-9]+\\)"
-    (rails-test:file-ext-regexp))
+    "\\[?\\([^ \f\n\r\t\v]+?\\):\\([0-9]+\\)\\(?::in\s*`\\(.*?\\)'\\)?"
    prepend))
 
 (defun rails-test:error-regexp-alist ()
   (list
    (list 'rails-test-trace
-         (rails-test:line-regexp) 2 6 nil 0)
-   (list 'rails-test-failure
-         (rails-test:line-regexp "\\[" "\\]") 2 6 nil 2)
+         (rails-test:line-regexp) 1 2 nil 1)
    (list 'rails-test-error
-         (rails-test:line-regexp nil ".*\n$") 2 6 nil 2)))
+         (rails-test:line-regexp nil "\\(?:\]:\\|\n$\\)") 1 2 nil 2))) ; ending of "]:" or next line is blank
 
 (defun rails-test:print-result ()
+  "Determine if the output buffer needs to be shown"
   (with-current-buffer (get-buffer rails-script:buffer-name)
     (let ((msg (list))
           (failures 0)
@@ -63,8 +70,8 @@
       (save-excursion
         (goto-char (point-min))
         (while (re-search-forward rails-test:result-regexp (point-max) t)
-          (setq failures (+ failures (string-to-number (match-string-no-properties 2))))
-          (setq errors (+ errors (string-to-number (match-string-no-properties 3))))
+          (setq failures (+ failures (string-to-number (match-string 2))))
+          (setq errors (+ errors (string-to-number (match-string 3))))
           (add-to-list 'msg (match-string-no-properties 1))))
       (unless (zerop (length msg))
         (message (strings-join " || " (reverse msg))))
@@ -91,22 +98,48 @@
 (define-derived-mode rails-test:compilation-mode compilation-mode "RTest"
   "Major mode for RoR tests."
   (rails-script:setup-output-buffer)
+  ; replace compilation font-lock-keywords
+  (set (make-local-variable 'compilation-mode-font-lock-keywords) rails-test:font-lock-keywords)
+  ; skip anythins less that error
+  (set (make-local-variable 'compilation-skip-threshold) 2)
   (set (make-local-variable 'compilation-error-regexp-alist-alist)
        (rails-test:error-regexp-alist))
   (set (make-local-variable 'compilation-error-regexp-alist)
        '(rails-test-error
-         rails-test-failure
          rails-test-trace))
   (add-hook 'after-change-functions 'rails-test:print-progress nil t)
-  (add-hook 'rails-script:run-after-stop-hook 'rails-test:print-result nil t)
-  (add-hook 'rails-script:show-buffer-hook
-            #'(lambda()
-                (let ((win (get-buffer-window (current-buffer))))
-                  (when (window-live-p win)
-                    (set-window-point win 0)
-                    (unless (buffer-visible-p (current-buffer))
-                      (compilation-set-window-height win)))))
-            t t))
+  (add-hook 'rails-script:run-after-stop-hook 'rails-test:hide-rails-project-root t t)
+;;  (add-hook 'rails-script:run-after-stop-hook 'rails-test:scroll-of-buffer t t)
+  (add-hook 'rails-script:run-after-stop-hook 'rails-test:print-result t t)
+  (add-hook 'rails-script:show-buffer-hook 'rails-test:reset-point-and-height t t))
+
+;; (defun rails-test:scroll-of-buffer ()
+;;   (with-current-buffer "ROutput"
+;;     (buffer "ROutput")
+;;     (goto-char (point-min))
+;;     (scroll-down-nomark (count-lines (point-min) (point-max)))))
+
+(defun rails-test:hide-rails-project-root ()
+  "Show files that are relative to the project root as relative filenames
+As the buffer is read-only this is merely a change in appearance"
+  (rails-project:with-root (root)
+    (save-excursion
+      (beginning-of-buffer)
+      (let ((file-regex (concat (regexp-quote root) "[^:]+")))
+        (while (re-search-forward file-regex nil t)
+          (let* ((orig-filename (match-string 0))
+                 (rel-filename (file-relative-name orig-filename root)))
+            (overlay-put (make-overlay (match-beginning 0) (match-end 0))
+                         'display rel-filename)))))))
+
+(defun rails-test:reset-point-and-height ()
+  "Resets the point and resizes the window for the output buffer.
+Used when it's determined that the output buffer needs to be shown."
+  (let ((win (get-buffer-window (current-buffer))))
+    (when (window-live-p win)
+      (set-window-point win 0)
+      (unless (buffer-visible-p (current-buffer))
+        (compilation-set-window-height win)))))
 
 (defun rails-test:list-of-tasks ()
   "Return a list contains test tasks."
@@ -133,7 +166,10 @@
 
 (defun rails-test:run-single-file (file &optional param)
   "Run test for single file FILE."
-  (let ((param (if param (append (list file) (list param))
+  (when (not (or file param))
+    "Refuse to run ruby without an argument: it would never return")
+  (let ((param (if param
+                   (list file param)
                  (list file))))
     (rails-script:run "ruby" param 'rails-test:compilation-mode)))
 
@@ -152,16 +188,46 @@
       ;; controller
       ((and controller (not (rails-core:mailer-p controller)) func-test)
        func-test)
-     ;; mailer
-     ((and controller (rails-core:mailer-p controller) unit-test)
-      unit-test)))))
+      ;; mailer
+      ((and controller (rails-core:mailer-p controller) unit-test)
+       unit-test)
+      ;; otherwise...
+      (t (if (string-match "test.*\\.rb" (buffer-file-name))
+             (buffer-file-name)
+           (error "Cannot determine whiche test file to run.")))))))
 
 (defun rails-test:run-current-method ()
   "Run a test for the current method."
   (interactive)
   (let ((file (substring (buffer-file-name) (length (rails-project:root))))
-        (method (rails-core:current-method-name)))
+        (method (rails-core:current-method-name))
+        (shoulda-method (rails-shoulda:current-test)))
     (when method
-      (rails-test:run-single-file file (format "--name=%s" method)))))
+      (rails-test:run-single-file file (format "--name=%s" method)))
+    (when shoulda-method
+      (rails-test:run-single-file file (format "--name=/%s/" (replace-regexp-in-string "[\+\. \'\"\(\)]" "." shoulda-method))))))
+
+;; These functions were originally defined anonymously in ui. They are defined here so keys
+;; can be added to them dryly
+(defun rails-test:run-integration ()
+  "Run Integration Tests."
+  (interactive)
+  (rails-test:run "integration"))
+(defun rails-test:run-units ()
+  "Run Unit Tests."
+  (interactive)
+  (rails-test:run "units"))
+(defun rails-test:run-functionals ()
+  "Run Functional Tests."
+  (interactive)
+  (rails-test:run "functionals"))
+(defun rails-test:run-recent ()
+  "Run Recent Tests."
+  (interactive)
+  (rails-test:run "recent"))
+(defun rails-test:run-all ()
+  "Run All Tests."
+  (interactive)
+  (rails-test:run "all"))
 
 (provide 'rails-test)

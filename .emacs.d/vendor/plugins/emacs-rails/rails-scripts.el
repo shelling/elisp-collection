@@ -6,8 +6,8 @@
 ;;          Rezikov Peter <crazypit13 (at) gmail.com>
 
 ;; Keywords: ruby rails languages oop
-;; $URL: svn+ssh://rubyforge/var/svn/emacs-rails/trunk/rails-scripts.el $
-;; $Id: rails-scripts.el 192 2007-05-03 11:54:30Z dimaexe $
+;; $URL$
+;; $Id$
 
 ;;; License
 
@@ -120,8 +120,6 @@ For example -c to remove files from svn.")
   (make-local-variable 'font-lock-defaults)
   (set (make-local-variable 'scroll-margin) 0)
   (set (make-local-variable 'scroll-preserve-screen-position) nil)
-  (make-local-hook 'rails-script:run-after-stop-hook)
-  (make-local-hook 'rails-script:show-buffer-hook)
   (make-local-variable 'after-change-functions)
   (rails-minor-mode t))
 
@@ -302,19 +300,25 @@ BUFFER-MAJOR-MODE and process-sentinel SENTINEL."
 
 ;;;;;;;;;; Shells ;;;;;;;;;;
 
-(defun rails-script:run-interactive (name script)
+(defun rails-script:run-interactive (name script &optional params)
   "Run an interactive shell with SCRIPT in a buffer named
 *rails-<project-name>-<name>*."
   (rails-project:with-root
    (root)
-   (run-ruby-in-buffer (rails-core:file script)
-                       (format "rails-%s-%s" (rails-project:name) name))
+   (let ((buffer-name (format "rails-%s-%s" (rails-project:name) name))
+         (script (rails-core:file script)))
+     (run-ruby-in-buffer buffer-name
+                         script
+                         params)
+     (setq ruby-buffer buffer-name))
    (rails-minor-mode t)))
 
 (defun rails-script:console ()
   "Run script/console."
   (interactive)
-  (rails-script:run-interactive "console" "script/console"))
+  (rails-script:run-interactive (format "console at (%s)" rails-default-environment)
+                                "script/console"
+                                 rails-default-environment))
 
 (defun rails-script:breakpointer ()
   "Run script/breakpointer."

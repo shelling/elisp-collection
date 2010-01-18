@@ -5,8 +5,8 @@
 ;; Authors: Dmitry Galinsky <dima dot exe at gmail dot com>
 
 ;; Keywords: ruby rails languages oop
-;; $URL: svn+ssh://rubyforge/var/svn/emacs-rails/trunk/rails-model-layout.el $
-;; $Id: rails-model-layout.el 173 2007-04-09 15:15:02Z dimaexe $
+;; $URL$
+;; $Id$
 
 ;;; License
 

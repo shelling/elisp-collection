@@ -6,8 +6,8 @@
 ;;          Rezikov Peter <crazypit13 (at) gmail.com>
 
 ;; Keywords: ruby rails languages oop
-;; $URL: svn+ssh://rubyforge/var/svn/emacs-rails/trunk/rails-core.el $
-;; $Id: rails-core.el 186 2007-04-20 15:34:51Z dimaexe $
+;; $URL$
+;; $Id$
 
 ;;; License
 
@@ -61,12 +61,8 @@
   "Return the filename associated with CLASSNAME.
 If the optional parameter DO-NOT-APPEND-EXT is set this function
 will not append \".rb\" to result."
-  (let* ((case-fold-search nil)
-         (path (replace-regexp-in-string "::" "/" classname))
-         (path (replace-regexp-in-string "\\([A-Z]+\\)\\([A-Z][a-z]\\)" "\\1_\\2" path))
-         (path (replace-regexp-in-string "\\([a-z\\d]\\)\\([A-Z]\\)" "\\1_\\2" path)))
-    (concat (downcase path)
-            (unless do-not-append-ext ".rb"))))
+  (concat (decamelize (replace-regexp-in-string "::" "/" classname))
+          (unless do-not-append-ext ".rb")))
 
 ;;;;;;;;;; Files ;;;;;;;;;;
 
@@ -99,21 +95,37 @@ will not append \".rb\" to result."
 it does not exist, ask to create it using QUESTION as a prompt."
   (find-or-ask-to-create question (rails-core:file file)))
 
+(defun rails-core:strip-namespace (class-name)
+  "Strip namespace of CLASS-NAME, eg Foo::Bar -> Bar."
+  (let ((name-list (split-string class-name "::")))
+    (car (last name-list))))
+
 ;; Funtions, that retrun Rails objects full pathes
 
 (defun rails-core:model-file (model-name)
   "Return the model file from the model name."
   (when model-name
-    (concat "app/models/" (rails-core:file-by-class model-name))))
+    (let* ((stripped-model-file
+            (rails-core:file-by-class
+             (rails-core:strip-namespace model-name)))
+           (model-file
+            (rails-core:file-by-class model-name)))
+      (cond
+       ((file-exists-p
+         (rails-core:file (concat "app/models/" model-file)))
+        (concat "app/models/" model-file))
+       ((file-exists-p
+         (rails-core:file (concat "app/models/" stripped-model-file)))
+        (concat "app/models/" stripped-model-file))
+       (t nil)))))
 
 (defun rails-core:model-exist-p (model-name)
-  "Return t if controller CONTROLLER-NAME exist."
-  (when model-name
-    (and (file-exists-p
-          (rails-core:file
-           (rails-core:model-file model-name)))
-         (not (rails-core:observer-p model-name))
-         (not (rails-core:mailer-p model-name)))))
+  "Return t if model MODEL-NAME exist."
+  (let ((model-file (rails-core:model-file model-name)))
+    (when model-file
+      (and (file-exists-p (rails-core:file model-file))
+           (not (rails-core:observer-p model-name))
+           (not (rails-core:mailer-p model-name))))))
 
 (defun rails-core:controller-file (controller-name)
   "Return the path to the controller CONTROLLER-NAME."
@@ -133,8 +145,23 @@ it does not exist, ask to create it using QUESTION as a prompt."
 
 (defun rails-core:controller-file-by-model (model)
   (when model
-    (let ((controller (pluralize-string model)))
-      (when (rails-core:controller-exist-p controller)
+    (let* ((controller (pluralize-string model)))
+           ;(controller (when controller (capitalize controller))))
+      (setq controller
+            (cond
+             ((rails-core:controller-exist-p controller) controller) ;; pluralized
+             ((rails-core:controller-exist-p model) model) ;; singularized
+             (t (let ((controllers (rails-core:controllers t)))
+                  (cond
+                   ;; with namespace
+                   ((find
+                     (list controller model)
+                     controllers
+                     :test #'(lambda(x y)
+                               (or
+                                (string= (car x) (rails-core:strip-namespace y))
+                                (string= (cadr x) (rails-core:strip-namespace y)))))))))))
+      (when controller
         (rails-core:controller-file controller)))))
 
 (defun rails-core:observer-file (observer-name)
@@ -180,6 +207,11 @@ it does not exist, ask to create it using QUESTION as a prompt."
       (when (and model-name
                  (rails-core:model-exist-p model-name))
         model-name))))
+
+(defun rails-core:configuration-file (file)
+  "Return the path to the configuration FILE."
+  (when file
+    (concat "config/" file)))
 
 (defun rails-core:plugin-file (plugin file)
   "Return the path to the FILE in Rails PLUGIN."
@@ -284,13 +316,14 @@ CONTROLLER."
 ;;;;;;;;;; Functions that return collection of Rails objects  ;;;;;;;;;;
 (defun rails-core:observer-p (name)
   (when name
-    (if (string-match "\\(Observer\\|_observer\\(\\.rb\\)?\\)$" name)
+    (if (string-match "\\(Observer\\|_observer\\)\\(\\.rb\\)?$" name)
         t nil)))
 
 (defun rails-core:mailer-p (name)
   (when name
-    (if (string-match "\\(Mailer\\|Notifier\\|_mailer\\|_notifier\\(\\.rb\\)?\\)$" name)
+    (if (string-match "\\(Mailer\\|Notifier\\|_mailer\\|_notifier\\)\\(\\.rb\\)?$" name)
         t nil)))
+
 
 (defun rails-core:controllers (&optional cut-contoller-suffix)
   "Return a list of Rails controllers. Remove the '_controller'
@@ -409,6 +442,10 @@ of migration."
    #'(lambda (l)
        (replace-regexp-in-string "\\.[^.]+$" "" l))
    (find-recursive-files "\\.yml$" (rails-core:file "test/fixtures/"))))
+
+(defun rails-core:configuration-files ()
+  "Return a files of files from config folder."
+  (find-recursive-files nil (rails-core:file "config/")))
 
 (defun rails-core:regex-for-match-view ()
   "Return a regex to match Rails view templates.
@@ -539,7 +576,6 @@ cannot be determinated."
       (when line-number
         (goto-line line-number)))))
 
-
 ;;;;;;;;;; Rails minor mode logs ;;;;;;;;;;
 
 (defun rails-log-add (message)
@@ -601,13 +637,16 @@ the Rails minor mode log."
       (dolist (it line)
         (typecase it
           (cons
-           (rails-core:menu-separator)
            (if (and (string= (car (rails-core:menu-separator)) (car it))
                     (string= (cadr (rails-core:menu-separator)) (cadr it)))
                (add-to-list 'result-line it t)
              (progn
-               (add-to-list 'result-line (cons (format "%s) %s" (nth letter rails-core:menu-letters-list) (car it))
-                                               (cdr it)) t)
+               (add-to-list 'result-line (cons
+                                          (format "%s) %s"
+                                                  (nth letter rails-core:menu-letters-list)
+                                                  (car it))
+                                          (cdr it))
+                            t)
                (setq letter (+ 1 letter)))))
           (t
            (add-to-list 'result-line it t))))

@@ -6,8 +6,8 @@
 ;;          Howard Yeh <hayeah at gmail dot com>
 
 ;; Keywords: ruby rails languages oop
-;; $URL: svn+ssh://rubyforge/var/svn/emacs-rails/trunk/inflections.el $
-;; $Id: inflections.el 178 2007-04-12 20:58:56Z dimaexe $
+;; $URL$
+;; $Id$
 
 ;;; License
 
@@ -85,18 +85,31 @@
   (:singular "\\(matr\\)ices$" "\\1ix")
   (:singular "\\(quiz\\)zes$" "\\1")
 
+  (:irregular "stratum" "strate")
+  (:irregular "syllabus" "syllabi")
+  (:irregular "radius" "radii")
+  (:irregular "addendum" "addenda")
+  (:irregular "cactus" "cacti")
+  (:irregular "child" "children")
+  (:irregular "corpus" "corpora")
+  (:irregular "criterion" "criteria")
+  (:irregular "datum" "data")
+  (:irregular "genus" "genera")
+  (:irregular "man" "men")
+  (:irregular "medium" "media")
+  (:irregular "move" "moves")
   (:irregular "person" "people")
   (:irregular "man" "men")
   (:irregular "child" "children")
   (:irregular "sex" "sexes")
   (:irregular "move" "moves")
 
-  (:uncountable "equipment" "information" "rice" "money" "species" "series" "fish" "sheep"))
+  (:uncountable "equipment" "information" "rice" "money" "species" "series" "fish" "sheep" "news"))
 
 (defun singularize-string (str)
   (when (stringp str)
     (or (car (member str inflection-uncountables))
-        (caar (member* str inflection-irregulars :key 'cadr :test 'equal))
+        (caar (member* (downcase str) inflection-irregulars :key 'cadr :test 'equal))
         (loop for (from to) in inflection-singulars
               for singular = (string=~ from str (sub to))
               when singular do (return singular))
@@ -105,7 +118,7 @@
 (defun pluralize-string (str)
   (when (stringp str)
     (or (car (member str inflection-uncountables))
-        (cadar (member* str inflection-irregulars :key 'car :test 'equal))
+        (cadar (member* (downcase str) inflection-irregulars :key 'car :test 'equal))
         (loop for (from to) in inflection-plurals
               for plurals = (string=~ from str (sub to))
               when plurals do (return plurals))

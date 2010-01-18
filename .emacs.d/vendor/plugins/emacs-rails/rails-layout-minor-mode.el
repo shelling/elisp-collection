@@ -5,8 +5,8 @@
 ;; Authors: Dmitry Galinsky <dima dot exe at gmail dot com>
 
 ;; Keywords: ruby rails languages oop
-;; $URL: svn+ssh://rubyforge/var/svn/emacs-rails/trunk/rails-layout-minor-mode.el $
-;; $Id: rails-layout-minor-mode.el 112 2007-03-24 22:34:38Z dimaexe $
+;; $URL$
+;; $Id$
 
 ;;; License
 

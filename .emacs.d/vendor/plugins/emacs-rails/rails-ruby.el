@@ -5,8 +5,8 @@
 ;; Authors: Dmitry Galinsky <dima dot exe at gmail dot com>
 
 ;; Keywords: ruby rails languages oop
-;; $URL: svn+ssh://rubyforge/var/svn/emacs-rails/trunk/rails-ruby.el $
-;; $Id: rails-ruby.el 190 2007-04-27 19:04:46Z dimaexe $
+;; $URL$
+;; $Id$
 
 ;;; License
 
@@ -26,8 +26,6 @@
 
 ;;; Code:
 
-(require 'inf-ruby)
-
 ;; setup align for ruby-mode
 (require 'align)
 
@@ -39,8 +37,12 @@
      (regexp . ",\\(\\s-*\\)[^/ \t\n]")
      (modes  . align-ruby-modes)
      (repeat . t))
+    (ruby-string-after-func
+     (regexp . "^\\s-*[a-zA-Z0-9.:?_]+\\(\\s-+\\)['\"]\\w+['\"]")
+     (modes  . align-ruby-modes)
+     (repeat . t))
     (ruby-symbol-after-func
-     (regexp . "^\\s-*\\w+\\(\\s-+\\):\\w+")
+     (regexp . "^\\s-*[a-zA-Z0-9.:?_]+\\(\\s-+\\):\\w+")
      (modes  . align-ruby-modes)))
   "Alignment rules specific to the ruby mode.
 See the variable `align-rules-list' for more details.")
@@ -51,6 +53,85 @@ See the variable `align-rules-list' for more details.")
 (add-to-list 'align-open-comment-modes 'ruby-mode)
 (dolist (it ruby-align-rules-list)
   (add-to-list 'align-rules-list it))
+
+;; hideshow ruby support
+
+(defun display-code-line-counts (ov)
+  (when (eq 'code (overlay-get ov 'hs))
+    (overlay-put ov 'face 'font-lock-comment-face)
+    (overlay-put ov 'display
+                 (format " ... %d lines"
+                         (count-lines (overlay-start ov)
+                                      (overlay-end ov))))))
+
+(eval-after-load "hideshow"
+  (unless 'hs-set-up-overlay
+    (setq hs-set-up-overlay 'display-code-line-counts)))
+
+(add-hook 'hs-minor-mode-hook
+          (lambda ()
+            (unless hs-set-up-overlay
+              (setq hs-set-up-overlay 'display-code-line-counts))))
+
+(defun ruby-hs-minor-mode (&optional arg)
+  (interactive)
+  (require 'hideshow)
+  (unless (assoc 'ruby-mode hs-special-modes-alist)
+    (setq
+     hs-special-modes-alist
+     (cons (list 'ruby-mode
+                 "\\(def\\|do\\)"
+                 "end"
+                 "#"
+                 (lambda (&rest args) (ruby-end-of-block))
+                 ;(lambda (&rest args) (ruby-beginning-of-defun))
+                 )
+           hs-special-modes-alist)))
+  (hs-minor-mode arg))
+
+;; flymake ruby support
+
+(require 'flymake nil t)
+
+(defconst flymake-allowed-ruby-file-name-masks
+  '(("\\.rb\\'"      flymake-ruby-init)
+    ("\\.rxml\\'"    flymake-ruby-init)
+    ("\\.builder\\'" flymake-ruby-init)
+    ("\\.erb\\'"     flymake-ruby-init)
+    ("\\.rjs\\'"     flymake-ruby-init))
+  "Filename extensions that switch on flymake-ruby mode syntax checks.")
+
+(defconst flymake-ruby-error-line-pattern-regexp
+  '("^\\([^:]+\\):\\([0-9]+\\): *\\([\n]+\\)" 1 2 nil 3)
+  "Regexp matching ruby error messages.")
+
+(defun flymake-ruby-init ()
+  (condition-case er
+      (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                         'flymake-create-temp-inplace))
+             (local-file  (file-relative-name
+                           temp-file
+                           (file-name-directory buffer-file-name))))
+        (list rails-ruby-command (list "-c" local-file)))
+    ('error ())))
+
+(defun flymake-ruby-load ()
+  (when (and (buffer-file-name)
+             (string-match
+              (format "\\(%s\\)"
+                      (string-join
+                       "\\|"
+                       (mapcar 'car flymake-allowed-ruby-file-name-masks)))
+              (buffer-file-name)))
+    (setq flymake-allowed-file-name-masks
+          (append flymake-allowed-file-name-masks flymake-allowed-ruby-file-name-masks))
+    (setq flymake-err-line-patterns
+          (cons flymake-ruby-error-line-pattern-regexp flymake-err-line-patterns))
+    (flymake-mode t)
+    (local-set-key (rails-key "d") 'flymake-display-err-menu-for-current-line)))
+
+(when (featurep 'flymake)
+  (add-hook 'ruby-mode-hook 'flymake-ruby-load))
 
 ;; other stuff
 
@@ -91,11 +172,13 @@ See the variable `align-rules-list' for more details.")
           (insert (format "'%s'" symbol-str))))))
     (goto-char initial-pos)))
 
-(defun run-ruby-in-buffer (cmd buf)
+(require 'inf-ruby)
+
+(defun run-ruby-in-buffer (buf script &optional params)
   "Run CMD as a ruby process in BUF if BUF does not exist."
   (let ((abuf (concat "*" buf "*")))
     (when (not (comint-check-proc abuf))
-      (set-buffer (make-comint buf rails-ruby-command nil cmd)))
+      (set-buffer (make-comint buf rails-ruby-command nil script params)))
     (inferior-ruby-mode)
     (make-local-variable 'inferior-ruby-first-prompt-pattern)
     (make-local-variable 'inferior-ruby-prompt-pattern)
@@ -117,47 +200,5 @@ See the variable `align-rules-list' for more details.")
                (cmd (if maxnum (concat cmd (format "[0...%s]" maxnum)) cmd)))
           (el4r-ruby-eval (format cmd (word-at-point) prefix prefix)))))))
 
-;; flymake ruby support
-
-(require 'flymake nil t)
-
-(defconst flymake-allowed-ruby-file-name-masks
-  '(("\\.rb\\'"      flymake-ruby-init)
-    ("\\.rxml\\'"    flymake-ruby-init)
-    ("\\.builder\\'" flymake-ruby-init)
-    ("\\.rjs\\'"     flymake-ruby-init))
-  "Filename extensions that switch on flymake-ruby mode syntax checks.")
-
-(defconst flymake-ruby-error-line-pattern-regexp
-  '("^\\([^:]+\\):\\([0-9]+\\): *\\([\n]+\\)" 1 2 nil 3)
-  "Regexp matching ruby error messages.")
-
-(defun flymake-ruby-init ()
-  (condition-case er
-      (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                         'flymake-create-temp-inplace))
-             (local-file  (file-relative-name
-                           temp-file
-                           (file-name-directory buffer-file-name))))
-        (list rails-ruby-command (list "-c" local-file)))
-    ('error ())))
-
-(defun flymake-ruby-load ()
-  (when (and (buffer-file-name)
-             (string-match
-              (format "\\(%s\\)"
-                      (string-join
-                       "\\|"
-                       (mapcar 'car flymake-allowed-ruby-file-name-masks)))
-              (buffer-file-name)))
-    (setq flymake-allowed-file-name-masks
-          (append flymake-allowed-file-name-masks flymake-allowed-ruby-file-name-masks))
-    (setq flymake-err-line-patterns
-          (cons flymake-ruby-error-line-pattern-regexp flymake-err-line-patterns))
-    (flymake-mode t)
-    (local-set-key (rails-key "d") 'flymake-display-err-menu-for-current-line)))
-
-(when (featurep 'flymake)
-  (add-hook 'ruby-mode-hook 'flymake-ruby-load))
 
 (provide 'rails-ruby)
