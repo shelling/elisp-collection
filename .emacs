@@ -26,7 +26,7 @@
 ;; (color-theme-gnome2)
 ;; (color-theme-kingsajz)
 
-
+(speedbar t)
 
 
 (byte-compile-file (expand-file-name "~/.emacs"))

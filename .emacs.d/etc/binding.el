@@ -12,6 +12,7 @@
 
 ;; FOR CONVENNIENT
 (define-key global-map "\M-!" 'eshell)
+(define-key ctl-x-map "w" 'copy-region-as-kill)
 
 
 ;; FOR PLUGINS
@@ -24,5 +25,6 @@
 
 ;;
 ;; (define-key global-map "\M-RET" 'dired-find-file-other-window)
+
 
 (provide 'binding)
