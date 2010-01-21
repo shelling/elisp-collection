@@ -33,6 +33,12 @@
 
 
 ;; __EXPERIMENTAL__
+(defun replace-region-with-just-yanking ()
+  "replace region with last key ring"
+  (interactive)
+  (delete-region)
+  (yank))
+
 (defun sidebar-buffer-list ()
   "open a sidebar to show buffer list"
   (interactive)

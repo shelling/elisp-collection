@@ -20,6 +20,7 @@
 
 (custom-set-faces)
 
+(setq-default speedbar-show-unknown-files t)
 
 ;; default frame setting
 ;; (setq frame-default-height 53
@@ -39,4 +40,4 @@
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
 
 ;; provide symbol
-(provide 'custom)
+(provide 'self-custom)

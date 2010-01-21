@@ -15,6 +15,8 @@
 (require 'folding)
 ;; (require 'folding-isearch)
 
+(require 'sr-speedbar)
+
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/"))
 (require 'rails)

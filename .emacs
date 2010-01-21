@@ -26,8 +26,10 @@
 ;; (color-theme-gnome2)
 ;; (color-theme-kingsajz)
 
-(speedbar t)
 
+(if window-system
+  (speedbar t)
+  (sr-speedbar-open))
 
 (byte-compile-file (expand-file-name "~/.emacs"))
 (recompile-emacs.d)
