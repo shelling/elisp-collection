@@ -10,17 +10,17 @@
     '(column-number-mode t)                    ;; show column number
     '(line-number-mode t)                      ;; show line number
     '(indent-tabs-mode nil)                    ;; expand tab to set
-    '(mac-option-modifier 'meta)               ;; set mac option as meta
-    '(mac-command-modifier 'hyper)
 ;;     '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
-)
+    '(mac-option-modifier 'meta)               ;; set mac option as meta
+    '(mac-command-modifier 'hyper))
 
 (set-face-attribute 'mode-line nil :box nil)
 ;; (global-font-lock-mode t)
 
 (custom-set-faces)
 
-(setq-default speedbar-show-unknown-files t)
+(setq-default speedbar-show-unknown-files t
+              sr-speedbar-right-side      nil)
 
 ;; default frame setting
 ;; (setq frame-default-height 53

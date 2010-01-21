@@ -33,11 +33,20 @@
 
 
 ;; __EXPERIMENTAL__
-(defun replace-region-with-just-yanking ()
-  "replace region with last key ring"
+(defun sr-speedbar-focus-toggle ()
   (interactive)
-  (delete-region)
-  (yank))
+  (if (sr-speedbar-exist-p)
+      (sr-speedbar-close)
+    (sr-speedbar-open))
+  (if (sr-speedbar-exist-p)
+      (sr-speedbar-select-window)
+    nil))
+
+;; (defun replace-region-with-just-yanking ()
+;;   "replace region with last key ring"
+;;   (interactive)
+;;   (delete-region)
+;;   (yank))
 
 (defun sidebar-buffer-list ()
   "open a sidebar to show buffer list"

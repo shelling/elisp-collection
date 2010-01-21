@@ -18,7 +18,13 @@
 ;; FOR PLUGINS
 ;; (define-key global-map "\C-xl" 'wb-line-number-toggle)
 (define-key ctl-x-map "l" 'wb-line-number-toggle)
-(define-key ctl-x-map "p" 'speedbar-get-focus)
+
+(if window-system
+    (define-key ctl-x-map "p" 'speedbar-get-focus)
+    (define-key ctl-x-map "p" 'sr-speedbar-focus-toggle))
+
+
+(global-unset-key [(control ?\/)])      ;; unset C-/
 (global-set-key "\M-z" 'undo)
 (global-set-key "\M-Z" 'redo)
 
