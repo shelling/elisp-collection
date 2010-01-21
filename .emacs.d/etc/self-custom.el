@@ -20,6 +20,7 @@
 (custom-set-faces)
 
 (setq-default speedbar-show-unknown-files t
+              truncate-lines              t
               sr-speedbar-right-side      nil)
 
 ;; default frame setting
