@@ -13,6 +13,7 @@
                 ("\\.js$" . javascript-mode)
                 ("\\.bash\\\\'" . shell-script-mode)
                 ("\\.css\\'" . css-mode)
+                ("\\.applescript$" . applescript-mode)
                 ("\\.pm\\'" . cperl-mode)
                 ("\\.pl\\'" . cperl-mode))
               auto-mode-alist))
@@ -29,6 +30,7 @@
        '(("scheme" . scheme-mode)
          ("guile" . scheme-mode)
          ("ruby" . ruby-mode)
+         ("osascript" . applescript-mode)
 ;;          ("perl" . cperl-mode)
          ("erl" . erlang-mode)))
 

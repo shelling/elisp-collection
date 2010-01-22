@@ -22,6 +22,9 @@
 (autoload 'sgml-mode "sgml-mode" "SGML Major Mode" t)
 ;; http://shallowsky.com/dotfiles/.emacs-lisp/sgml-mode.el
 
+(autoload 'applescript-mode "applescript-mode" "Applescript Major Mode" t)
+;; http://github.com/ieure/applescript-mode
+
 
 (autoload 'erlang-mode "erlang" "Major Mode for erlang" t)
 ;; http://www.erlang.org/download/contrib/erlang.el
