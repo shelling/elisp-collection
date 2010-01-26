@@ -33,6 +33,8 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/yaml-mode/"))
 (autoload 'yaml-mode "yaml-mode" "YAML Major Mode" t)
 
+(require 'python-mode)
+
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/ruby-mode/"))
 (require 'ruby-mode)
