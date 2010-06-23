@@ -5,9 +5,6 @@
 (require 'patch)                        ;; personal patch for third party plugins
 (require 'etc)                          ;; personal setting
 
-
-
-
 (custom-set-variables
     '(tool-bar-mode nil nil (tool-bar))        ;; hidden tool-bar
     '(scroll-bar-mode nil nil (scroll-bar))    ;; hidden scroll-bar
@@ -17,19 +14,10 @@
 (custom-set-faces)
 
 
-
-;; (color-theme-dark-laptop)
 (color-theme-railscasts)
+;; (color-theme-dark-laptop)
 ;; (color-theme-blackboard)
 ;; (color-theme-charcoal-black)
 ;; (color-theme-deep-blue)
 ;; (color-theme-gnome2)
 ;; (color-theme-kingsajz)
-
-
-(if window-system
-  (speedbar t)
-  (sr-speedbar-open))
-
-(byte-compile-file (expand-file-name "~/.emacs"))
-(recompile-emacs.d)

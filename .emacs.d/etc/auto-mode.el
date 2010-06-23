@@ -14,8 +14,7 @@
                 ("\\.bash\\\\'" . shell-script-mode)
                 ("\\.css\\'" . css-mode)
                 ("\\.applescript$" . applescript-mode)
-                ("\\.pm\\'" . cperl-mode)
-                ("\\.pl\\'" . cperl-mode))
+                ("\\.p[lm]\\'" . cperl-mode))
               auto-mode-alist))
 
 (add-to-list 'interpreter-mode-alist
