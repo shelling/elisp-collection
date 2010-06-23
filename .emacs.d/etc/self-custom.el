@@ -46,6 +46,7 @@
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (defvar frame-setting-mbp
       '(
+        (left . 240)
         (width . 120)
         (height . 56)
         (alpha . (90 90))
