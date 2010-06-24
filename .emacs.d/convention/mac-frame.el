@@ -1,4 +1,5 @@
 (defun mac-frame-default ()
+  "reset frame height and width as the same as frame-setting-mbp"
   (interactive)
 ;;   (set-frame-position nil
 ;;                       (cdr (assoc 'left frame-setting-mbp))
