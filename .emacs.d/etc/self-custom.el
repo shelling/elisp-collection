@@ -31,6 +31,14 @@
               truncate-lines              t
               sr-speedbar-right-side      nil)
 
+(setq
+ rcirc-default-nick              "shelling_mbp"
+ rcirc-default-full-name         "shelling ford"
+ rcirc-server-alist              '(
+                                   ("irc.freenode.net" :channels ("#emacs" "#chupei.pm" "#shelling"))
+                                   )
+ )
+
 ;; for Carbon Emacs 22
 (if (and (<= emacs-major-version 22) (eq window-system 'mac))
     (defvar frame-setting-mbp
@@ -52,6 +60,7 @@
         (alpha . (90 90))
         )))
 
+;; for Linux
 (if (eq window-system 'x)
     (defvar frame-setting-mbp
       '(
@@ -62,8 +71,11 @@
         ))
   )
 
-(setq default-frame-alist frame-setting-mbp
-      initial-frame-alist frame-setting-mbp)
+(if frame-setting-mbp
+    (let ()
+      (setq default-frame-alist frame-setting-mbp
+            initial-frame-alist frame-setting-mbp)
+      ))
 
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
