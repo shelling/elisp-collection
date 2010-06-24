@@ -52,6 +52,16 @@
         (alpha . (90 90))
         )))
 
+(if (eq window-system 'x)
+    (defvar frame-setting-mbp
+      '(
+        (left . 30)
+        (width . 120)
+        (height . 45)
+        (alpha . (90 90))
+        ))
+  )
+
 (setq default-frame-alist frame-setting-mbp
       initial-frame-alist frame-setting-mbp)
 
