@@ -2,7 +2,6 @@
 (require 'convention)                   ;; personal conventional interactive function
 (require 'mode)                         ;; major and minor mode
 (require 'vendor)                       ;; third party library
-(require 'patch)                        ;; personal patch for third party plugins
 (require 'etc)                          ;; personal setting
 
 (custom-set-variables
