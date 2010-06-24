@@ -12,7 +12,9 @@
 (require 'mercurial)
 (require 'vc-hg)
 
-(require 'folding)
+;; (require 'folding)
+(load "folding" 'nomessage 'noerror)    ;; these two line make all files
+(folding-mode-add-find-file-hook)       ;; to be searched for folding marks
 ;; (require 'folding-isearch)
 
 (require 'sr-speedbar)
@@ -30,20 +32,14 @@
 (yas/load-directory "~/.emacs.d/vendor/plugins/yasnippet-0.6.1c/snippets")
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;
-;; color theme plugin  ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;
+;; color theme plugin
 (require 'color-theme)                  ; general color setting solution
 (color-theme-initialize)
 
 
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; temporary obsolete plugins    ;;
-;; unmask section to reboot them ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; temporary obsolete plugins 
+;; unmask section to reboot them
+;; 
 
 ;; (require 'elisp-cache)
 ;; ;; not yet set the cache direcotry
