@@ -44,8 +44,8 @@
 
 
 (global-unset-key [(control ?\/)])      ;; unset C-/
-(global-set-key "\M-z" 'undo)
-(global-set-key "\M-Z" 'redo)
+(global-set-key [(super Z)] 'redo)
+(global-set-key [(super z)] 'undo)
 
 
 (provide 'binding)
