@@ -34,6 +34,7 @@
 
 ;; for convention
 (define-key global-map "\M-!" 'eshell)
+(define-key ctl-x-map "O" 'previous-multiframe-window)
 
 
 
