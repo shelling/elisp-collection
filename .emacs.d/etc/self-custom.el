@@ -32,7 +32,7 @@
               sr-speedbar-right-side      nil)
 
 (setq
- rcirc-default-nick              "shelling_mbp"
+ rcirc-default-nick              "shelling_emacs"
  rcirc-default-full-name         "shelling ford"
  rcirc-server-alist              '(
                                    ("irc.freenode.net" :channels ("#emacs" "#chupei.pm" "#shelling"))
@@ -66,6 +66,7 @@
 (if (eq window-system 'x)
     (defvar frame-setting-mbp
       '(
+        (top . 70)
         (left . 30)
         (width . 120)
         (height . 45)
