@@ -64,7 +64,8 @@
 
 ;; for Linux
 (if (eq window-system 'x)
-    (defvar frame-setting-mbp
+    (let ()
+     (defvar frame-setting-mbp
       '(
         (top . 70)
         (left . 30)
@@ -72,6 +73,10 @@
         (height . 45)
         (alpha . (90 90))
         ))
+
+     (require 'scim-bridge)
+     (add-hook 'after-init-hook 'scim-mode-on)
+     )
   )
 
 (if frame-setting-mbp
