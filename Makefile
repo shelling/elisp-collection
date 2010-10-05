@@ -12,3 +12,5 @@ update:
 	cp ~/.emacs_bash ./
 install:
 	@echo "install"
+	rm -rf ~/.emacs*
+	mv .emacs* ~
