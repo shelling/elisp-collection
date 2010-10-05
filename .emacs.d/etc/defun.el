@@ -27,6 +27,11 @@
       )
   )
 
+(defun traditional-console-frame ()
+  "set height and width of frame to 80x24"
+  (interactive)
+  (set-frame-width  nil 80)
+  (set-frame-height nil 24))
 
 (defun join-line-below ()
   "join current line and below line together without white space"
