@@ -1,0 +1,7 @@
+#contributor : shelling <navyblueshellingford@gmail.com>
+#name : (defun ...)
+# --
+(defun ${1:func} ()
+  (${2:block}))
+$0
+

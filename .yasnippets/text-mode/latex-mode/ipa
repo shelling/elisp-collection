@@ -1,0 +1,4 @@
+#contributor : shelling <navyblueshellingford@gmail.com>
+#name : \textipa{/.../}
+# --
+\textipa{/${1:phonetic}/} $0

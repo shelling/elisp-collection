@@ -1,0 +1,13 @@
+#contributor : shelling <navyblueshelingford@gmail.com>
+#name : \begin{document} ... \end{document}
+# --
+\begin{document}
+  \title{${1:title}}
+  \author{${2:author}}
+  \maketitle
+
+% \tableofcontents % uncomment this line to make toc
+
+$0
+
+\end{document}

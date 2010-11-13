@@ -2,6 +2,8 @@
 ;;
 
 (custom-set-variables
+    '(yas/root-directory "~/.yasnippets" nil (yasnippet))
+    '(Info-default-directory-list (append Info-default-directory-list '("~/.info")))
     '(auto-save-mode nil)                      ;; forbidden auto-save
     '(global-hl-line-mode t)                   ;; highlight current line
     '(delete-old-versions Delete)              ;; kill all filename~
@@ -18,7 +20,7 @@
 
     '(indent-tabs-mode nil)                    ;; expand tab to set
     '(default-tab-width 4)                     ;; tab as 4 space
-;;     '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
+    ;; '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
     '(mac-option-modifier 'meta)               ;; set mac option as meta
     '(mac-command-modifier 'super))
 
@@ -35,7 +37,7 @@
  rcirc-default-nick              "shelling_emacs"
  rcirc-default-full-name         "shelling ford"
  rcirc-server-alist              '(
-                                   ("irc.freenode.net" :channels ("#emacs" "#chupei.pm" "#shelling"))
+                                   ("irc.freenode.net" :channels ("#emacs" "#chupei.pm" "#shelling" "#perl.tw" "#dot"))
                                    )
  )
 

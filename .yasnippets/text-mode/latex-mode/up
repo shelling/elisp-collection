@@ -1,0 +1,4 @@
+# name : \usepackage
+# contributor : shelling <navyblueshellingford@gmail.com>
+# --
+\usepackage{${1:package}}$0
