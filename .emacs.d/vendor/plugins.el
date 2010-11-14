@@ -29,25 +29,11 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/yasnippet-0.6.1c/"))
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/vendor/plugins/yasnippet-0.6.1c/snippets")
 
 
 ;; color theme plugin
 (require 'color-theme)                  ; general color setting solution
 (color-theme-initialize)
-
-
-;; temporary obsolete plugins 
-;; unmask section to reboot them
-;; 
-
-;; (require 'elisp-cache)
-;; ;; not yet set the cache direcotry
-;; ;; not a convenient plugin
-
-;; (require 'byte-code-cache)
-;; ;; should be loaded before other plugin to compile them
-;; ;; not a convenient plugin
 
 ;; provide symbol
 (provide 'plugins)

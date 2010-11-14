@@ -2,17 +2,24 @@
 ;;   Set all custom key binding here.
 ;;
 
+(global-unset-key [(ctrl ?\/)])      ;; unset C-/
+
+
+
+(global-set-key [(super Z)] 'redo)
+(global-set-key [(super z)] 'undo)
+
+
 ;; for Carbon Emacs 22
 (if (and (<= emacs-major-version 22) (eq window-system 'mac))
-    (let ()
+    (progn
       (global-set-key [(meta return)] 'carbon-emacs-toggle-fullscreen)
-      (define-key ctl-x-map "p" 'speedbar)
       )
   )
 
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
-    (let ()
+    (progn
       (global-set-key [(meta return)] 'ns-toggle-fullscreen)
       )
   )
@@ -20,7 +27,7 @@
 ;; for emacs undef terminal
 (if window-system
     ()
-    (let ()
+    (progn
       (define-key ctl-x-map "p" 'sr-speedbar-focus-toggle)
     )
 )
@@ -31,13 +38,16 @@
 (define-key ctl-x-map "j" 'join-line-below)
 (define-key ctl-x-map "c" 'recompile-emacs.d)
 
-
 ;; for convention
 (define-key global-map "\M-!" 'eshell)
 (global-set-key "\M-[" 'previous-multiframe-window)
 (global-set-key "\M-]" 'next-multiframe-window)
 
-
+(global-set-key [(ctrl return) (ctrl return)] 'rm-set-mark)
+(global-set-key [(ctrl return) ?x] 'rm-exchange-point-and-mark)
+(global-set-key [(ctrl return) (ctrl ?w)] 'rm-kill-region)
+(global-set-key [(ctrl return) (meta ?w)] 'rm-kill-ring-save)
+(global-set-key [(ctrl return) ?r] 'replace-rectangle)
 
 ;; for plugins
 ;; (define-key global-map "\C-xl" 'wb-line-number-toggle)
@@ -45,9 +55,7 @@
 
 
 
-(global-unset-key [(control ?\/)])      ;; unset C-/
-(global-set-key [(super Z)] 'redo)
-(global-set-key [(super z)] 'undo)
+
 
 
 (provide 'binding)
