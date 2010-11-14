@@ -5,10 +5,27 @@
 (global-unset-key [(ctrl ?\/)])      ;; unset C-/
 
 
-
+;; global convention
 (global-set-key [(super Z)] 'redo)
 (global-set-key [(super z)] 'undo)
 
+(global-set-key "\M-[" 'previous-multiframe-window)
+(global-set-key "\M-]" 'next-multiframe-window)
+
+(global-set-key "\M-!" 'eshell)
+
+(define-key ctl-x-map "l" 'wb-line-number-toggle)
+
+(define-key ctl-x-map "j" 'join-line-below)
+
+(define-key ctl-x-map "c" 'recompile-emacs.d)
+
+;; rectangle region editing
+(global-set-key [(ctrl return) (ctrl return)] 'rm-set-mark)
+(global-set-key [(ctrl return) ?x] 'rm-exchange-point-and-mark)
+(global-set-key [(ctrl return) (ctrl ?w)] 'rm-kill-region)
+(global-set-key [(ctrl return) (meta ?w)] 'rm-kill-ring-save)
+(global-set-key [(ctrl return) ?r] 'replace-rectangle)
 
 ;; for Carbon Emacs 22
 (if (and (<= emacs-major-version 22) (eq window-system 'mac))
@@ -31,31 +48,5 @@
       (define-key ctl-x-map "p" 'sr-speedbar-focus-toggle)
     )
 )
-
-
-;; for defined in etc/defun.el
-(define-key global-map "\C-j" 'join-line-below)
-(define-key ctl-x-map "j" 'join-line-below)
-(define-key ctl-x-map "c" 'recompile-emacs.d)
-
-;; for convention
-(define-key global-map "\M-!" 'eshell)
-(global-set-key "\M-[" 'previous-multiframe-window)
-(global-set-key "\M-]" 'next-multiframe-window)
-
-(global-set-key [(ctrl return) (ctrl return)] 'rm-set-mark)
-(global-set-key [(ctrl return) ?x] 'rm-exchange-point-and-mark)
-(global-set-key [(ctrl return) (ctrl ?w)] 'rm-kill-region)
-(global-set-key [(ctrl return) (meta ?w)] 'rm-kill-ring-save)
-(global-set-key [(ctrl return) ?r] 'replace-rectangle)
-
-;; for plugins
-;; (define-key global-map "\C-xl" 'wb-line-number-toggle)
-(define-key ctl-x-map "l" 'wb-line-number-toggle)
-
-
-
-
-
 
 (provide 'binding)
