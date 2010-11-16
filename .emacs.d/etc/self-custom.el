@@ -54,14 +54,24 @@
 
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
-    (if (string-equal system-configuration "i386-apple-darwin9.8.0")
-        (defvar frame-setting-mbp
-          '(
-            (left . 240)
-            (width . 120)
-            (height . 56)
-            (alpha . (90 90))
-            )))
+    (progn
+      (if (string-equal system-configuration "i386-apple-darwin9.8.0")
+          (defvar frame-setting-mbp
+            '(
+              (left . 240)
+              (width . 120)
+              (height . 56)
+              (alpha . (90 90))
+              )))
+      (if (string-equal system-configuration "x86_64-apple-darwin10.0.0")
+          (defvar frame-setting-mbp
+            '(
+              (left . 240)
+              (width . 120)
+              (height . 56)
+              (alpha . (90 90))
+              )))
+      )
 )
 
 ;; for Linux
