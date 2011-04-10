@@ -58,9 +58,10 @@
       (if (string-equal system-configuration "i386-apple-darwin9.8.0")
           (defvar frame-setting-mbp
             '(
-              (left . 240)
+              (font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+              (left . 140)
               (width . 120)
-              (height . 56)
+              (height . 42)
               (alpha . (90 90))
               )))
       (if (string-equal system-configuration "x86_64-apple-darwin10.0.0")
