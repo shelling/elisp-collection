@@ -41,9 +41,11 @@
                                    )
  )
 
+
+(defvar frame-setting)
 ;; for Carbon Emacs 22
 (if (and (<= emacs-major-version 22) (eq window-system 'mac))
-    (defvar frame-setting-mbp
+    (setq frame-setting
       '(
         (top . 26)
         (left . 350)
@@ -56,7 +58,7 @@
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (progn
       (if (string-equal system-configuration "i386-apple-darwin9.8.0")
-          (defvar frame-setting-mbp
+          (setq frame-setting
             '(
               (font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
               (left . 140)
@@ -65,7 +67,7 @@
               (alpha . (90 90))
               )))
       (if (string-equal system-configuration "x86_64-apple-darwin10.0.0")
-          (defvar frame-setting-mbp
+          (setq frame-setting
             '(
               (left . 240)
               (width . 120)
@@ -78,7 +80,7 @@
 ;; for Linux
 (if (eq window-system 'x)
     (let ()
-     (defvar frame-setting-mbp
+     (setq frame-setting
       '(
         (top . 70)
         (left . 30)
@@ -96,10 +98,10 @@
      ) 
   )
 
-(if frame-setting-mbp
+(if frame-setting
     (let ()
-      (setq default-frame-alist frame-setting-mbp
-            initial-frame-alist frame-setting-mbp)
+      (setq default-frame-alist frame-setting
+            initial-frame-alist frame-setting)
       ))
 
 
