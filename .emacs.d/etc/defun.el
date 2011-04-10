@@ -27,6 +27,11 @@
       )
   )
 
+(defun reload ()
+  "reload ~/.emacs"
+  (interactive)
+  (load-file (expand-file-name "~/.emacs")))
+
 (defun traditional-console-frame ()
   "set height and width of frame to 80x24"
   (interactive)
