@@ -20,11 +20,11 @@
 (require 'sr-speedbar)
 
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/"))
-(require 'rails)
-;; Depend on:
-;;   snippet.el
-;;   find-recursive.el
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/"))
+;; (require 'rails)
+;; ;; Depend on:
+;; ;;   snippet.el
+;; ;;   find-recursive.el
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/yasnippet-0.6.1c/"))
 (require 'yasnippet)

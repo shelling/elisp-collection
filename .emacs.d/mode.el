@@ -1,53 +1,72 @@
 ;; mode.el
 ;;
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/"))
+(add-to-list
+ 'load-path
+ (expand-file-name "~/.emacs.d/mode/"))
 
+(autoload 
+  'css-mode
+  "css-mode" 
+  "http://www.emacswiki.org/emacs/css-mode.el"
+  t)
 
-(autoload 'css-mode "css-mode" "Major Mode for CSS" t)
-;; http://www.emacswiki.org/emacs/css-mode.el
+(autoload 
+  'javascript-mode
+  "javascript-mode" 
+  "http://www.emacswiki.org/emacs/JavaScriptMode"
+  t)
 
+(autoload
+  'cperl-mode
+  "cperl-mode"
+  nil
+  t)
 
-(autoload 'javascript-mode "javascript-mode" "Major Mode for Javascript" t)
-;; http://www.emacswiki.org/emacs/JavaScriptMode
+(autoload 
+  'sgml-mode
+  "sgml-mode" 
+  nil
+  t)
 
+(autoload
+  'applescript-mode
+  "applescript-mode"
+  "http://github.com/ieure/applescript-mode"
+  t)
 
-(autoload 'cperl-mode "cperl-mode.el" "New Perl Major Mode" t)
-;; http://www.emacswiki.org/cgi-bin/wiki/CPerlMode
-;; http://cpan.perl.org/misc/emacs/
-;; http://math.berkeley.edu/~ilya/software/emacs/
-;; http://github.com/jrockway/cperl-mode/tree/master
+(autoload
+  'erlang-mode
+  "erlang"
+  "http://www.erlang.org/download/contrib/erlang.el"
+  t)
 
+(add-to-list
+ 'load-path
+ (expand-file-name "~/.emacs.d/mode/yaml-mode/"))
+(autoload
+  'yaml-mode
+  "yaml-mode"
+  "YAML Major Mode"
+  t)
 
-(autoload 'sgml-mode "sgml-mode" "SGML Major Mode" t)
-;; http://shallowsky.com/dotfiles/.emacs-lisp/sgml-mode.el
+(add-to-list
+ 'load-path
+ (expand-file-name "~/.emacs.d/mode/ruby-mode/"))
+(autoload
+  'ruby-mode
+  "ruby-mode"
+  nil
+  t)
 
-(autoload 'applescript-mode "applescript-mode" "Applescript Major Mode" t)
-;; http://github.com/ieure/applescript-mode
-
-
-(autoload 'erlang-mode "erlang" "Major Mode for erlang" t)
-;; http://www.erlang.org/download/contrib/erlang.el
-
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/yaml-mode/"))
-(autoload 'yaml-mode "yaml-mode" "YAML Major Mode" t)
-
-(require 'python-mode)
-
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/ruby-mode/"))
-(require 'ruby-mode)
-(require 'ruby-electric)
-(require 'inf-ruby)
-(require 'ruby-style)
-;; http://svn.ruby-lang.org/repos/ruby/trunk/misc/
-;;
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/rhtml-mode/"))
-(autoload 'rhtml-mode "rhtml-mode" "rhtml Major Mode" t)
-;; http://github.com/eschulte/rhtml
-
+(add-to-list
+ 'load-path
+ (expand-file-name "~/.emacs.d/mode/rhtml-mode/"))
+(autoload
+  'rhtml-mode
+  "rhtml-mode" 
+  "http://github.com/eschulte/rhtml"
+  t)
 
 ;; provide symbol
 (provide 'mode)
