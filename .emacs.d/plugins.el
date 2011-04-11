@@ -1,7 +1,7 @@
 ;; plugins.el
 ;;
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/"))
 
 (require 'wb-line-number)               ; show line number in independent window
 (require 'line-num)                     ; show line number in the same window
@@ -25,13 +25,13 @@
 (require 'sr-speedbar)
 
 
-;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/emacs-rails/"))
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/emacs-rails/"))
 ;; (require 'rails)
 ;; ;; Depend on:
 ;; ;;   snippet.el
 ;; ;;   find-recursive.el
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/yasnippet-0.6.1c/"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/yasnippet-0.6.1c/"))
 (require 'yasnippet)
 (yas/initialize)
 

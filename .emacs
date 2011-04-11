@@ -22,7 +22,7 @@
      )))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
-(require 'vendor)                       ;; third party library
+(require 'plugins)
 (load-all "~/.emacs.d/etc")
 
 
