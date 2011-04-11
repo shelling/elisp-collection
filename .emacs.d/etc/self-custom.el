@@ -88,10 +88,10 @@
     (let ()
      (setq frame-setting
       '(
-        (top . 70)
+        (top . 50)
         (left . 30)
         (width . 120)
-        (height . 45)
+        (height . 35)
         (alpha . (90 90))
         ))
 
@@ -115,4 +115,5 @@
 
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
+
 
