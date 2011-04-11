@@ -41,9 +41,6 @@
   "http://www.erlang.org/download/contrib/erlang.el"
   t)
 
-(add-to-list
- 'load-path
- (expand-file-name "~/.emacs.d/mode/yaml-mode/"))
 (autoload
   'yaml-mode
   "yaml-mode"
