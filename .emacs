@@ -1,3 +1,5 @@
+(require 'cl)
+
 (defun load-all (name)
   (let ((type (car (file-attributes name))))
     (cond 
@@ -21,8 +23,6 @@
      (t (load-all type))
      )))
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
-(require 'plugins)
 (load-all "~/.emacs.d/etc")
 
 
