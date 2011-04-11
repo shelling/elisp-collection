@@ -3,7 +3,10 @@
 
 (setq auto-mode-alist
       (append '(("\\.rb\\'" . ruby-mode)
-                ("\\.rake\\'" . ruby-mode)
+                ("\\.rake$" . ruby-mode)
+                ("Gemfile$" . ruby-mode)
+                ("Capfile$" . ruby-mode)
+                ("\\.builder$" . ruby-mode)
                 ("\\rakefile\\'" . ruby-mode)
                 ("\\.rhtml\\'" . rhtml-mode)
                 ("\\.erb\\'" . rhtml-mode)
