@@ -15,10 +15,7 @@
               do 
               (if (and (not (string= ".." file)) 
                        (not (string= "." file)))
-                  (load-all (concat (file-name-as-directory name) file))
-                )
-              )
-        ))
+                  (load-all (concat (file-name-as-directory name) file))))))
      ;; is symlink
      (t (load-all type))
      )))
@@ -26,10 +23,4 @@
 (load-all "~/.emacs.d/etc")
 
 
-(color-theme-railscasts)
-;; (color-theme-dark-laptop)
-;; (color-theme-blackboard)
-;; (color-theme-charcoal-black)
-;; (color-theme-deep-blue)
-;; (color-theme-gnome2)
-;; (color-theme-kingsajz)
+
