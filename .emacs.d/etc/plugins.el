@@ -39,6 +39,3 @@
 ;; color theme plugin
 (require 'color-theme)                  ; general color setting solution
 (color-theme-initialize)
-
-;; provide symbol
-(provide 'plugins)
