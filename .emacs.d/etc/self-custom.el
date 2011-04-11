@@ -110,6 +110,9 @@
             initial-frame-alist frame-setting)
       ))
 
+(setq ruby-indent-level 4
+      cperl-indent-level 4)
+
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
 
