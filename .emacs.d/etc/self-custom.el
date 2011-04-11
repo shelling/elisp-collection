@@ -14,6 +14,12 @@
     '(column-number-mode t)                    ;; show column number
     '(line-number-mode t)                      ;; show line number
 
+    '(tool-bar-mode nil nil (tool-bar))        ;; hidden tool-bar
+    '(scroll-bar-mode nil nil (scroll-bar))    ;; hidden scroll-bar
+    '(menu-bar-mode nil nil (menu-bar))        ;; hidden menu-bar
+    '(transient-mark-mode t)                   ;; highlight marked region
+    '(ring-bell-function 'ignore)              ;; turn the alarm totally off
+
     '(ido-mode t)
     '(ido-enable-flex-matching t)
     '(ido-everywhere t)

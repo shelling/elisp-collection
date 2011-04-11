@@ -23,14 +23,6 @@
 (require 'vendor)                       ;; third party library
 (load-all "~/.emacs.d/etc")
 
-(custom-set-variables
-    '(tool-bar-mode nil nil (tool-bar))        ;; hidden tool-bar
-    '(scroll-bar-mode nil nil (scroll-bar))    ;; hidden scroll-bar
-    '(menu-bar-mode nil nil (menu-bar))        ;; hidden menu-bar
-    '(transient-mark-mode t)                   ;; highlight marked region
-    '(ring-bell-function 'ignore))             ;; turn the alarm totally off
-(custom-set-faces)
-
 
 (color-theme-railscasts)
 ;; (color-theme-dark-laptop)
