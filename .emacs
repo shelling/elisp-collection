@@ -1,9 +1,11 @@
 (defun load-all (name)
   (let ((type (car (file-attributes name))))
     (cond 
+     ;; is file
      ((eq type nil) 
       (load 
        (file-name-nondirectory (replace-regexp-in-string "\\.el$" "" name))))
+     ;; is dir
      ((eq type t)
       (progn 
         (add-to-list 'load-path (expand-file-name name))
@@ -15,6 +17,7 @@
                 )
               )
         ))
+     ;; is symlink
      (t (load-all type))
      )))
 

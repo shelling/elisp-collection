@@ -4,15 +4,15 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/"))
 
 
-(autoload 'css-mode "css-mode.elc" "Major Mode for CSS" t)
+(autoload 'css-mode "css-mode" "Major Mode for CSS" t)
 ;; http://www.emacswiki.org/emacs/css-mode.el
 
 
-(autoload 'javascript-mode "javascript-mode.elc" "Major Mode for Javascript" t)
+(autoload 'javascript-mode "javascript-mode" "Major Mode for Javascript" t)
 ;; http://www.emacswiki.org/emacs/JavaScriptMode
 
 
-(autoload 'cperl-mode "cperl-mode.elc" "New Perl Major Mode" t)
+(autoload 'cperl-mode "cperl-mode.el" "New Perl Major Mode" t)
 ;; http://www.emacswiki.org/cgi-bin/wiki/CPerlMode
 ;; http://cpan.perl.org/misc/emacs/
 ;; http://math.berkeley.edu/~ilya/software/emacs/

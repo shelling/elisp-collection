@@ -32,5 +32,3 @@
          ("osascript" . applescript-mode)
 ;;          ("perl" . cperl-mode)
          ("erl" . erlang-mode)))
-
-(provide 'auto-mode)

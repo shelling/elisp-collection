@@ -131,5 +131,3 @@
 ;; (define-key global-map "\M-pk" 'insert-key-tag)
 (define-key global-map "\C-ok" 'insert-key-tag)
 
-
-(provide 'coding-pair)

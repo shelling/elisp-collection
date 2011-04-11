@@ -113,5 +113,3 @@
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
 
-;; provide symbol
-(provide 'self-custom)

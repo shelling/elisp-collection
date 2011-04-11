@@ -48,5 +48,3 @@
       (define-key ctl-x-map "p" 'sr-speedbar-focus-toggle)
     )
 )
-
-(provide 'binding)

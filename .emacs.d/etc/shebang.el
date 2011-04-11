@@ -10,4 +10,3 @@
   (interactive)
   (insert "#!/usr/bin/env python\n#-*- mode: python -*-\n\n"))
 
-(provide 'shebang)
