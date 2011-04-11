@@ -2,6 +2,7 @@
 ;;
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/plugins/"))
+
 (require 'wb-line-number)               ; show line number in independent window
 (require 'line-num)                     ; show line number in the same window
 
@@ -9,13 +10,17 @@
 (require 'run-guile)
 (require 'rect-mark)
 
+
+(require 'vc-git)                  ;; emacs-git
+(require 'snippet)                 ;; emacs-rails
+(require 'find-recursive)          ;; emacs-rails
+(require 'square-braces-as-parens) ;; run-guile
+(require 'set-keys)                ;; run-guile
+(require 'map-table)               ;; run-guile
+(require 'sym-comp)                ;; python.el in emacs 22
+
 (require 'mercurial)
 (require 'vc-hg)
-
-;; (require 'folding)
-(load "folding" 'nomessage 'noerror)    ;; these two line make all files
-(folding-mode-add-find-file-hook)       ;; to be searched for folding marks
-;; (require 'folding-isearch)
 
 (require 'sr-speedbar)
 
