@@ -24,6 +24,9 @@
 
 (require 'sr-speedbar)
 
+(require 'highlight-parentheses)
+(require 'autopair )
+
 
 ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/emacs-rails/"))
 ;; (require 'rails)

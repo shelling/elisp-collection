@@ -116,4 +116,10 @@
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
 
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda ()
+             (highlight-parentheses-mode))
+
+
+
 (color-theme-railscasts)
