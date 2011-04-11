@@ -67,6 +67,3 @@
   "rhtml-mode" 
   "http://github.com/eschulte/rhtml"
   t)
-
-;; provide symbol
-(provide 'mode)

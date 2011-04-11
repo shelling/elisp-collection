@@ -22,7 +22,6 @@
      )))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
-(require 'mode)                         ;; major and minor mode
 (require 'vendor)                       ;; third party library
 (load-all "~/.emacs.d/etc")
 
