@@ -10,6 +10,7 @@
     '(make-backup-files nil)                   ;; not back up file into filename~
     '(completion-ignore-case t)
     '(default-fill-column 120)
+    '(show-paren-mode t)
 
     '(column-number-mode t)                    ;; show column number
     '(line-number-mode t)                      ;; show line number
