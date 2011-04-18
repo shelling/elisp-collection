@@ -12,8 +12,8 @@
     '(default-fill-column 120)
     '(show-paren-mode t)
 
-    '(split-height-threshold nil)              ;; split window horizontally by default 
-    '(split-width-threshold 0)                 ;;
+    '(split-height-threshold 30)               ;; 
+    '(split-width-threshold 60)                ;;
 
     '(column-number-mode t)                    ;; show column number
     '(line-number-mode t)                      ;; show line number
