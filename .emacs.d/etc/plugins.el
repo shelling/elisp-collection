@@ -27,6 +27,8 @@
 (require 'highlight-parentheses)
 (require 'autopair )
 
+(require 'pod-mode)
+
 
 ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/emacs-rails/"))
 ;; (require 'rails)
