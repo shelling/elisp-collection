@@ -28,6 +28,13 @@
     '(ido-enable-flex-matching t)
     '(ido-everywhere t)
 
+    '(cperl-hairy t)
+    '(cperl-electric-parens t)
+    '(cperl-electric-keywords t)
+    '(cperl-indent-parens-as-block t)
+    '(cperl-close-paren-offset -4)
+    '(cperl-auto-newline t)
+
     '(indent-tabs-mode nil)                    ;; expand tab to set
     '(default-tab-width 4)                     ;; tab as 4 space
     ;; '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
