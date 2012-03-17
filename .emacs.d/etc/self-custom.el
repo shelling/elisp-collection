@@ -59,7 +59,7 @@
  )
 
 
-(defvar frame-setting)
+(defvar frame-setting '())
 ;; for Carbon Emacs 22
 (if (and (<= emacs-major-version 22) (eq window-system 'mac))
     (setq frame-setting
