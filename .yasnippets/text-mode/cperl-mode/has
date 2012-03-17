@@ -1,0 +1,9 @@
+#name : has attr => ( ... );
+# --
+has ${1:var} => (
+    is  => "${2:rw/ro}",
+    isa => "${3:type}",
+    ${4:more}
+);
+
+$0
