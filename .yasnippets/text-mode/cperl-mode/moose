@@ -1,4 +1,5 @@
 #name : use Moose; ...
+#group : moose
 # --
 use Moose;
 

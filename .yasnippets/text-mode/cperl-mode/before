@@ -1,0 +1,6 @@
+#name : before ... => sub { ... };
+#group : moose
+# --
+before ${1:name} => sub {
+    $0
+};

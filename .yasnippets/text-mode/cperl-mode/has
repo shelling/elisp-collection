@@ -1,4 +1,5 @@
 #name : has attr => ( ... );
+#group : moose
 # --
 has ${1:var} => (
     is  => "${2:rw/ro}",
