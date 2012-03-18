@@ -85,15 +85,10 @@
 ;;   (delete-region)
 ;;   (yank))
 
-(defun sidebar-buffer-list ()
-  "open a sidebar to show buffer list"
-  (interactive)
-  (make-frame '((name . "buffer sidebar")
-                (width . 26)
-                (height . 53)
-                (top . 26)
-                (left . 100)
-                (minibuffer . nil))))
+(defun transparency (value)
+  "set transparency of the frame. 0=transparent, 100=opaque"
+  (interactive "n 0 (transparent) - 100 (opaque): ")
+  (set-frame-parameter (selected-frame) 'alpha value))
 
 (defun echo (expr)
   "echo"

@@ -34,7 +34,6 @@
     '(cperl-electric-keywords t)
     '(cperl-indent-parens-as-block t)
     '(cperl-close-paren-offset -4)
-    '(cperl-auto-newline t)
 
     '(ruby-indent-level 4)
 
