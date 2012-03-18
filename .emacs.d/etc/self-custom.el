@@ -28,12 +28,15 @@
     '(ido-enable-flex-matching t)
     '(ido-everywhere t)
 
+    '(cperl-indent-level 4)
     '(cperl-hairy t)
     '(cperl-electric-parens t)
     '(cperl-electric-keywords t)
     '(cperl-indent-parens-as-block t)
     '(cperl-close-paren-offset -4)
     '(cperl-auto-newline t)
+
+    '(ruby-indent-level 4)
 
     '(indent-tabs-mode nil)                    ;; expand tab to set
     '(default-tab-width 4)                     ;; tab as 4 space
@@ -121,9 +124,7 @@
             initial-frame-alist frame-setting)
       ))
 
-(setq ruby-indent-level 4
-      cperl-indent-level 4)
-
+(defalias 'perl-mode 'cperl-mode)
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
 
