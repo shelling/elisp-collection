@@ -21,11 +21,17 @@
 (define-key ctl-x-map "c" 'recompile-emacs.d)
 
 ;; rectangle region editing
-(global-set-key [(ctrl return) (ctrl return)] 'rm-set-mark)
-(global-set-key [(ctrl return) ?x] 'rm-exchange-point-and-mark)
-(global-set-key [(ctrl return) (ctrl ?w)] 'rm-kill-region)
-(global-set-key [(ctrl return) (meta ?w)] 'rm-kill-ring-save)
-(global-set-key [(ctrl return) ?r] 'replace-rectangle)
+(global-set-key (kbd "C-x r C-SPC")
+                'rm-set-mark)
+(global-set-key (kbd "C-x r C-x")
+                'rm-exchange-point-and-mark)
+(global-set-key (kbd "C-x r C-w")
+                'rm-kill-region)
+(global-set-key (kbd "C-x r M-w")
+                'rm-kill-ring-save)
+(global-set-key (kbd "C-x r r")
+                'replace-rectangle)
+
 
 ;; for Carbon Emacs 22
 (if (and (<= emacs-major-version 22) (eq window-system 'mac))
