@@ -1,0 +1,10 @@
+#name : around ... => sub { ... };
+#group : moose
+# --
+around ${1:name} => sub {
+    my $orig = shift;
+    my $self = shift;
+    $0
+    $self->$orig(@_);
+
+};

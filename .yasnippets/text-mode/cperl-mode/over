@@ -1,0 +1,8 @@
+#name : oeverride ... => sub { ... };
+#group : moose
+# --
+override ${1:name} => sub {
+    my ($self, $2) = @_;
+    $0
+    super();
+};
