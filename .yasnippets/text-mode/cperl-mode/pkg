@@ -1,0 +1,7 @@
+#name : package ...
+# --
+package ${1:name};
+
+$0
+
+1;
