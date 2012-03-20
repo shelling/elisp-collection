@@ -14,7 +14,7 @@
 
 (global-set-key "\M-!" 'eshell)
 
-(define-key ctl-x-map "l" 'wb-line-number-toggle)
+(define-key ctl-x-map "l" 'global-linum-mode)
 
 (define-key ctl-x-map "j" 'join-line-below)
 
