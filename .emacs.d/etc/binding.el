@@ -9,14 +9,24 @@
 (global-set-key [(super Z)] 'redo)
 (global-set-key [(super z)] 'undo)
 
-(global-set-key "\M-[" 'previous-multiframe-window)
-(global-set-key "\M-]" 'next-multiframe-window)
+;; windows jumping
+(global-set-key "\M-[" 
+                'previous-multiframe-window)
+(global-set-key "\M-]" 
+                'next-multiframe-window)
+
+;; line manipulating
+(global-set-key (kbd "M-k")
+                'backward-kill-line)
+(global-set-key (kbd "C-x j")
+                'join-line-below)
+
+(global-set-key (kbd "C-x p")
+                'sr-speedbar-focus-toggle)
 
 (global-set-key "\M-!" 'eshell)
 
 (define-key ctl-x-map "l" 'global-linum-mode)
-
-(define-key ctl-x-map "j" 'join-line-below)
 
 (define-key ctl-x-map "c" 'recompile-emacs.d)
 
@@ -56,10 +66,3 @@
       )
   )
 
-;; for emacs undef terminal
-(if window-system
-    ()
-    (progn
-      (define-key ctl-x-map "p" 'sr-speedbar-focus-toggle)
-    )
-)

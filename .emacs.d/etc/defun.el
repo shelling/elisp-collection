@@ -27,6 +27,11 @@
       )
   )
 
+(defun backward-kill-line ()
+  "kill the characters to the start of one line"
+  (interactive)
+  (kill-line 0))
+
 (defun reload ()
   "reload ~/.emacs"
   (interactive)
