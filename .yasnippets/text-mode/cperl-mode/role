@@ -1,0 +1,8 @@
+#name : use Moose::Role; ...
+#group : moose
+# --
+use Moose::Role;
+
+$0
+
+no Moose;

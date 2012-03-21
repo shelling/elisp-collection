@@ -1,4 +1,4 @@
 #name : my ($self,) = @_;
 # --
-my ($self,) = @_;
+my ($self, $1) = @_;
 $0
