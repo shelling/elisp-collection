@@ -24,6 +24,13 @@
 (global-set-key (kbd "C-x p")
                 'sr-speedbar-focus-toggle)
 
+(global-set-key (kbd "C-x a a")
+                'align)
+(global-set-key (kbd "C-x a c")
+                'align-current)
+(global-set-key (kbd "C-x a r")
+                'align-regexp)
+
 (global-set-key "\M-!" 'eshell)
 
 (define-key ctl-x-map "l" 'global-linum-mode)
