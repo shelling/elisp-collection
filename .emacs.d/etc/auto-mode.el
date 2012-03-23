@@ -18,6 +18,7 @@
                 ("\\.css\\'" . css-mode)
                 ("\\.applescript$" . applescript-mode)
                 ("\\.pod$" . pod-mode)
+                ("\\.t$" . cperl-mode)
                 ("\\.p[lm]\\'" . cperl-mode))
               auto-mode-alist))
 
