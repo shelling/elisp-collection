@@ -17,6 +17,8 @@
                 ("\\.bash\\\\'" . shell-script-mode)
                 ("\\.css\\'" . css-mode)
                 ("\\.applescript$" . applescript-mode)
+                ("\\.md$" . markdown-mode)
+                ("\\.markdown$" . markdown-mode)
                 ("\\.pod$" . pod-mode)
                 ("\\.t$" . cperl-mode)
                 ("\\.p[lm]\\'" . cperl-mode))
