@@ -64,3 +64,9 @@
   "rhtml-mode" 
   "http://github.com/eschulte/rhtml"
   t)
+
+(autoload
+  'puppet-mode
+  "puppet-mode"
+  "Puppet Major Mode"
+  t)

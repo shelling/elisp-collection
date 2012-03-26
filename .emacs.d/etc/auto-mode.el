@@ -19,6 +19,7 @@
                 ("\\.applescript$" . applescript-mode)
                 ("\\.md$" . markdown-mode)
                 ("\\.markdown$" . markdown-mode)
+                ("\\.pp$" . puppet-mode)
                 ("\\.pod$" . pod-mode)
                 ("\\.t$" . cperl-mode)
                 ("\\.p[lm]\\'" . cperl-mode))
