@@ -95,6 +95,10 @@
               (height . 56)
               (alpha . (90 90))
               )))
+
+      (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
+      (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
+
       )
 )
 
