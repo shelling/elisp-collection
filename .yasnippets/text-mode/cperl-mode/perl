@@ -1,6 +1,7 @@
 #name : #!perl
 # --
 #!/usr/bin/env perl
+#-*- mode: cperl -*-
 use Modern::Perl;
 
 $0

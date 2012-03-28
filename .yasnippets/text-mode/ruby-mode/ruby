@@ -1,5 +1,7 @@
 #name : #!ruby
 # --
 #!/usr/bin/env ruby
+#-*- mode: ruby -*-
+require 'rubygems'
 
 $0
