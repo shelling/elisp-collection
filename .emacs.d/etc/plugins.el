@@ -29,6 +29,8 @@
 
 (require 'pod-mode)
 
+(require 'folding)
+
 
 ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/emacs-rails/"))
 ;; (require 'rails)

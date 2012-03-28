@@ -31,6 +31,9 @@
 (global-set-key (kbd "C-x a r")
                 'align-regexp)
 
+(global-set-key (kbd "C-c TAB")
+                'folding-toggle-show-hide)
+
 (global-set-key "\M-!" 'eshell)
 
 (define-key ctl-x-map "l" 'global-linum-mode)
