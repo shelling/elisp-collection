@@ -1,0 +1,8 @@
+#name : try { ... } catch { ... };
+# --
+try {
+    ${1:# do something}
+} catch {
+    my \$e = shift;
+    $0
+};
