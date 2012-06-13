@@ -115,12 +115,11 @@
         (font . "Monospace-12")
         ))
 
-     (require 'scim-bridge)
-     (add-hook 'after-init-hook 'scim-mode-on)
-     (scim-define-common-key (kbd "M-SPC") t)
-     (scim-define-common-key (kbd "C-SPC") nil)
-     (scim-define-common-key (kbd "C-/") nil)
-     (setq scim-cursor-color '("#EB6528" "#4EA4D9" "#C9DE55"))
+     (require 'ibus)
+     (add-hook 'after-init-hook 'ibus-mode-on)
+     ;; (setq ibus-agent-file-name "/usr/lib/ibus-el/ibus-el/agent")
+     (setq ibus-cursor-color '("#4EA4D9" "#EB6528" "#C9DE55"))
+     (global-set-key (kbd "M-SPC") 'ibus-toggle)
      ) 
   )
 
