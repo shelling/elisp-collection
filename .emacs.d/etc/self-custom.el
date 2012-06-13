@@ -110,8 +110,9 @@
         (top . 50)
         (left . 30)
         (width . 120)
-        (height . 35)
+        (height . 45)
         (alpha . (90 90))
+        (font . "Monospace-12")
         ))
 
      (require 'scim-bridge)
