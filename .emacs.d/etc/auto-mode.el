@@ -22,6 +22,8 @@
                 ("\\.pp$" . puppet-mode)
                 ("\\.pod$" . pod-mode)
                 ("\\.t$" . cperl-mode)
+                ("\\.scss$" . scss-mode)
+                ("\\.haml$" . haml-mode)
                 ("\\.p[lm]\\'" . cperl-mode))
               auto-mode-alist))
 

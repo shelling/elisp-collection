@@ -70,3 +70,15 @@
   "puppet-mode"
   "Puppet Major Mode"
   t)
+
+(autoload
+  'scss-mode
+  "scss-mode"
+  "SCSS Major Mode"
+  t)
+
+(autoload
+  'haml-mode
+  "haml-mode"
+  "HAML Major Mode"
+  t)

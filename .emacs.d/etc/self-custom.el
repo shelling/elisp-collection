@@ -37,6 +37,10 @@
 
     '(ruby-indent-level 4)
 
+    '(scss-compile-at-save nil)
+
+    '(haml-indent-offset 4)
+
     '(puppet-indent-level 4)
 
     '(indent-tabs-mode nil)                    ;; expand tab to set
