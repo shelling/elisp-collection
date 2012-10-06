@@ -82,7 +82,7 @@
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (progn
-      (if (string-equal system-configuration "i386-apple-darwin9.8.0")
+      (if (string-match "i386-apple-darwin" system-configuration)
           (setq frame-setting
             '(
               (font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
@@ -91,13 +91,15 @@
               (height . 42)
               (alpha . (90 90))
               )))
-      (if (string-equal system-configuration "x86_64-apple-darwin10.0.0")
+      (if (string-match "x86_64-apple-darwin" system-configuration)
           (setq frame-setting
             '(
-              (left . 240)
+              (font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+              (left . 140)
+              (top . 50)
               (width . 120)
-              (height . 56)
-              (alpha . (90 90))
+              (height . 40)
+              (alpha . (95 95))
               )))
 
       (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
