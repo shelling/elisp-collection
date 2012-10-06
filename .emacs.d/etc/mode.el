@@ -5,18 +5,6 @@
  'load-path
  (expand-file-name "~/.emacs.d/mode/"))
 
-(autoload 
-  'css-mode
-  "css-mode" 
-  "http://www.emacswiki.org/emacs/css-mode.el"
-  t)
-
-(autoload 
-  'javascript-mode
-  "javascript-mode" 
-  "http://www.emacswiki.org/emacs/JavaScriptMode"
-  t)
-
 (autoload
   'cperl-mode
   "cperl-mode"
