@@ -10,3 +10,4 @@ tramp
 ede-projects.el
 .DS_Store
 .old
+.emacs.d/elpa/
