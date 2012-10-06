@@ -3,9 +3,6 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/"))
 
-(require 'wb-line-number)               ; show line number in independent window
-(require 'line-num)                     ; show line number in the same window
-
 (require 'redo)                         ; need key mapping
 (require 'run-guile)
 (require 'rect-mark)
