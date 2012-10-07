@@ -13,6 +13,7 @@
     '(completion-ignore-case t)
     '(default-fill-column 120)
     '(show-paren-mode t)
+    '(autopair-global-mode t)
 
     '(split-height-threshold 30)               ;; 
     '(split-width-threshold 60)                ;;
@@ -32,7 +33,7 @@
 
     '(cperl-indent-level 4)
     '(cperl-hairy nil)
-    '(cperl-electric-parens t)
+    '(cperl-electric-parens nil)
     '(cperl-electric-keywords nil)
     '(cperl-indent-parens-as-block t)
     '(cperl-close-paren-offset -4)
