@@ -12,7 +12,6 @@
 
 (require 'sr-speedbar)
 
-(require 'highlight-parentheses)
 (require 'autopair)
 
 (require 'pod-mode)
