@@ -10,7 +10,7 @@
     '(Info-default-directory-list (append Info-default-directory-list '("~/.info")))
     '(auto-save-mode nil)                      ;; forbidden auto-save
     '(global-hl-line-mode t)                   ;; highlight current line
-    '(delete-old-versions Delete)              ;; kill all filename~
+    '(delete-old-versions t)                   ;; kill all filename~
     '(make-backup-files nil)                   ;; not back up file into filename~
     '(completion-ignore-case t)
     '(default-fill-column 120)
