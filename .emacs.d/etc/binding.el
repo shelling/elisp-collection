@@ -62,13 +62,6 @@
 (global-set-key (kbd "S-C-<up>")
                 'enlarge-window)
 
-;; for Carbon Emacs 22
-(if (and (<= emacs-major-version 22) (eq window-system 'mac))
-    (progn
-      (global-set-key [(meta return)] 'carbon-emacs-toggle-fullscreen)
-      )
-  )
-
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (progn

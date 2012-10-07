@@ -1,19 +1,6 @@
 ;; defun.el
 ;;
 
-
-(if (and (<= emacs-major-version 22) (eq window-system 'mac))
-    (let ()
-
-      (defun carbon-emacs-toggle-fullscreen ()
-        "fullscreen toggler: carbon emacs version"
-        (interactive)
-        (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen) nil 'fullboth))
-        )
-
-      )
-  )
-
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (let ()
       

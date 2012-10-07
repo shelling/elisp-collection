@@ -72,16 +72,6 @@
 
 
 (defvar frame-setting '())
-;; for Carbon Emacs 22
-(if (and (<= emacs-major-version 22) (eq window-system 'mac))
-    (setq frame-setting
-      '(
-        (top . 26)
-        (left . 350)
-        (width . 120)
-        (height . 53)
-        (alpha . (90 90))
-        )))
 
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
