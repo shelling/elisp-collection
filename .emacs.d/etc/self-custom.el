@@ -33,9 +33,9 @@
     '(ido-everywhere t)
 
     '(cperl-indent-level 4)
-    '(cperl-hairy t)
+    '(cperl-hairy nil)
     '(cperl-electric-parens t)
-    '(cperl-electric-keywords t)
+    '(cperl-electric-keywords nil)
     '(cperl-indent-parens-as-block t)
     '(cperl-close-paren-offset -4)
 
@@ -144,8 +144,7 @@
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
 
 (add-hook 'emacs-lisp-mode-hook
-          '(lambda ()
-             (highlight-parentheses-mode)))
+          'highlight-parentheses-mode)
 
 
 
