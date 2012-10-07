@@ -5,8 +5,6 @@
     '(package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-    '(yas/root-directory "~/.yasnippets" nil (yasnippet))
     '(Info-default-directory-list (append Info-default-directory-list '("~/.info")))
     '(auto-save-mode nil)                      ;; forbidden auto-save
     '(global-hl-line-mode t)                   ;; highlight current line

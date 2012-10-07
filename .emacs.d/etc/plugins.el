@@ -18,12 +18,6 @@
 
 (require 'folding)
 
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/yasnippet-0.6.1c/"))
-(require 'yasnippet)
-(yas/initialize)
-
-
 ;; color theme plugin
 (require 'color-theme)                  ; general color setting solution
 (color-theme-initialize)

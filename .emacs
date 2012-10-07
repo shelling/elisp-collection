@@ -1,5 +1,9 @@
 (require 'cl)
 
+(package-initialize)
+(require 'yasnippet)
+(yas-global-mode 1)
+
 (defun load-all (name)
   (let ((type (car (file-attributes name))))
     (cond 
