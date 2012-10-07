@@ -2,6 +2,7 @@
 ;;
 
 (custom-set-variables
+    '(custom-safe-themes '("be7eadb2971d1057396c20e2eebaa08ec4bfd1efe9382c12917c6fe24352b7c1" default))
     '(package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
@@ -151,6 +152,4 @@
 (add-hook 'emacs-lisp-mode-hook
           'highlight-parentheses-mode)
 
-
-
-(color-theme-railscasts)
+(load-theme 'zenburn)
