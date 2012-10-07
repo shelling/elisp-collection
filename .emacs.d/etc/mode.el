@@ -35,9 +35,6 @@
   "YAML Major Mode"
   t)
 
-(add-to-list
- 'load-path
- (expand-file-name "~/.emacs.d/mode/ruby-mode/"))
 (autoload
   'ruby-mode
   "ruby-mode"
