@@ -1,8 +1,18 @@
+(package-initialize)
+
 (require 'cl)
 
-(package-initialize)
 (require 'yasnippet)
 (yas-global-mode 1)
+
+(require 'redo+)                         ; need key mapping
+(require 'rect-mark)
+(require 'sr-speedbar)
+(require 'autopair)
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/"))
+(require 'pod-mode)
+(require 'folding)
 
 (defun load-all (name)
   (let ((type (car (file-attributes name))))
