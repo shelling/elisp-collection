@@ -7,8 +7,6 @@
 
 (autoload 'rm-set-mark "rect-mark" "" t nil)
 
-(require 'mercurial)
-(require 'vc-hg)
 
 (require 'sr-speedbar)
 
