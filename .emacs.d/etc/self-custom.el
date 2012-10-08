@@ -51,6 +51,11 @@
 
     '(indent-tabs-mode nil)                    ;; expand tab to set
     '(default-tab-width 4)                     ;; tab as 4 space
+
+    '(sr-speedbar-right-side nil)
+    '(speedbar-show-unknown-files t)
+    '(truncate-lines t)
+
     ;; '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
     '(mac-option-modifier 'meta)               ;; set mac option as meta
     '(mac-command-modifier 'super))
@@ -59,10 +64,6 @@
 ;; (global-font-lock-mode t)
 
 (custom-set-faces)
-
-(setq-default speedbar-show-unknown-files t
-              truncate-lines              t
-              sr-speedbar-right-side      nil)
 
 (setq
  rcirc-default-nick              "shelling_emacs"
