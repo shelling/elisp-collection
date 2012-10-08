@@ -5,8 +5,7 @@
 
 (require 'redo+)                         ; need key mapping
 
-(autoload 'rm-set-mark "rect-mark" "" t nil)
-
+(require 'rect-mark)
 
 (require 'sr-speedbar)
 
