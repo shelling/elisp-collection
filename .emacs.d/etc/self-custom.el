@@ -47,6 +47,8 @@
 
     '(puppet-indent-level 4)
 
+    '(sgml-basic-offset 4)                     ;; for html-mode
+
     '(indent-tabs-mode nil)                    ;; expand tab to set
     '(default-tab-width 4)                     ;; tab as 4 space
     ;; '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
