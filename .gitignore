@@ -11,3 +11,4 @@ ede-projects.el
 .DS_Store
 .old
 .emacs.d/elpa/
+.emacs.d/url/
