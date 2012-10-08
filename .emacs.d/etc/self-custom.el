@@ -66,12 +66,10 @@
 (custom-set-faces)
 
 (setq
+ rcirc-server-alist              '(("irc.freenode.net"
+                                    :channels ("#emacs" "#chupei.pm" "#shelling" "#perl.tw" "#dot")))
  rcirc-default-nick              "shelling_emacs"
- rcirc-default-full-name         "shelling ford"
- rcirc-server-alist              '(
-                                   ("irc.freenode.net" :channels ("#emacs" "#chupei.pm" "#shelling" "#perl.tw" "#dot"))
-                                   )
- )
+ rcirc-default-full-name         "shelling ford")
 
 
 (defvar frame-setting '())
@@ -98,7 +96,7 @@
       (if (string-match "apple-darwin" system-configuration)
           (setq frame-setting frame-setting-cocoa))
       (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
-      (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))      
+      (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
       ))
 
 ;; for Linux
@@ -114,10 +112,9 @@
      ))
 
 (if frame-setting
-    (let ()
-      (setq default-frame-alist frame-setting
-            initial-frame-alist frame-setting)
-      ))
+    (setq default-frame-alist frame-setting
+          initial-frame-alist frame-setting))
+
 
 (defalias 'perl-mode 'cperl-mode)
 
