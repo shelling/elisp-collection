@@ -73,55 +73,42 @@
 
 (defvar frame-setting '())
 
+(defvar frame-setting-cocoa
+  '((font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+    (left . 140)
+    (top . 50)
+    (width . 120)
+    (height . 40)
+    (alpha . (95 95))))
+
+(defvar frame-setting-linux
+  '((top . 50)
+    (left . 30)
+    (width . 120)
+    (height . 45)
+    (alpha . (90 90))
+    (font . "Monospace-12")))
+
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (progn
-      (if (string-match "i386-apple-darwin" system-configuration)
-          (setq frame-setting
-            '(
-              (font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
-              (left . 140)
-              (width . 120)
-              (height . 42)
-              (alpha . (90 90))
-              )))
-      (if (string-match "x86_64-apple-darwin" system-configuration)
-          (setq frame-setting
-            '(
-              (font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
-              (left . 140)
-              (top . 50)
-              (width . 120)
-              (height . 40)
-              (alpha . (95 95))
-              )))
-
+      (if (string-match "apple-darwin" system-configuration)
+          (setq frame-setting frame-setting-cocoa))
       (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
-      (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
-
-      )
-)
+      (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))      
+      ))
 
 ;; for Linux
 (if (eq window-system 'x)
     (let ()
-     (setq frame-setting
-      '(
-        (top . 50)
-        (left . 30)
-        (width . 120)
-        (height . 45)
-        (alpha . (90 90))
-        (font . "Monospace-12")
-        ))
+     (setq frame-setting frame-setting-linux)
 
      (require 'ibus)
      (add-hook 'after-init-hook 'ibus-mode-on)
      ;; (setq ibus-agent-file-name "/usr/lib/ibus-el/ibus-el/agent")
      (setq ibus-cursor-color '("#4EA4D9" "#EB6528" "#C9DE55"))
      (global-set-key (kbd "M-SPC") 'ibus-toggle)
-     ) 
-  )
+     ))
 
 (if frame-setting
     (let ()
