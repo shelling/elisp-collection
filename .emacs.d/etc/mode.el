@@ -40,4 +40,5 @@
 (nconc interpreter-mode-alist
        '(("scheme"                   . scheme-mode)
          ("osascript"                . applescript-mode)
+         ("node"                     . javascript-mode)
          ("erl"                      . erlang-mode)))
