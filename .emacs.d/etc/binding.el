@@ -5,7 +5,7 @@
 (global-unset-key (kbd "C-/"))       ;; unset C-/
 (global-unset-key (kbd "C-_"))       ;; unset C-_
 
-;; global convention
+;; redo/undo
 (global-set-key (kbd "s-Z")             'redo)
 (global-set-key (kbd "s-z")             'undo)
 
@@ -17,17 +17,17 @@
 (global-set-key (kbd "M-k")             'backward-kill-line)
 (global-set-key (kbd "C-x j")           'join-line-below)
 
-(global-set-key (kbd "C-x p")           'sr-speedbar-focus-toggle)
-
+;; alignment
 (global-set-key (kbd "C-x a a")         'align)
 (global-set-key (kbd "C-x a c")         'align-current)
 (global-set-key (kbd "C-x a r")         'align-regexp)
 
-(global-set-key (kbd "C-c TAB")         'folding-toggle-show-hide)
-(global-set-key (kbd "M-!")             'eshell)
-
+(global-set-key (kbd "C-x p")           'sr-speedbar-focus-toggle)
 (global-set-key (kbd "C-x l")           'global-linum-mode)
 (global-set-key (kbd "C-x c")           'recompile-emacs.d)
+
+(global-set-key (kbd "C-c TAB")         'folding-toggle-show-hide)
+(global-set-key (kbd "M-!")             'eshell)
 
 ;; rectangle region editing
 (global-set-key (kbd "C-x r C-SPC")     'rm-set-mark)
