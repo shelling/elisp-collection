@@ -14,6 +14,14 @@
       )
   )
 
+(defun make-frame-default ()
+  "reset frame height and width as the same as frame-setting"
+  (interactive)
+  (set-frame-height nil
+                    (cdr (assoc 'height frame-setting)))
+  (set-frame-width nil
+                   (cdr (assoc 'width frame-setting))))
+
 (defun backward-kill-line ()
   "kill the characters to the start of one line"
   (interactive)
