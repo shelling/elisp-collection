@@ -6,8 +6,8 @@
 (global-unset-key (kbd "C-_"))       ;; unset C-_
 
 ;; global convention
-(global-set-key [(super Z)]             'redo)
-(global-set-key [(super z)]             'undo)
+(global-set-key (kbd "s-Z")             'redo)
+(global-set-key (kbd "s-z")             'undo)
 
 ;; windows jumping
 (global-set-key (kbd "M-[")             'previous-multiframe-window)
