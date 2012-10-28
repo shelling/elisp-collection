@@ -38,6 +38,6 @@
               auto-mode-alist))
 
 (nconc interpreter-mode-alist
-       '(("scheme" . scheme-mode)
-         ("osascript" . applescript-mode)
-         ("erl" . erlang-mode)))
+       '(("scheme"                   . scheme-mode)
+         ("osascript"                . applescript-mode)
+         ("erl"                      . erlang-mode)))
