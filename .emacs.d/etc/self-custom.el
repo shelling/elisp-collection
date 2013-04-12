@@ -129,4 +129,4 @@
 (add-hook 'emacs-lisp-mode-hook
           'highlight-parentheses-mode)
 
-(load-theme 'zenburn)
+(load-theme 'zenburn t)
