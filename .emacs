@@ -10,6 +10,9 @@
 (require 'sr-speedbar)
 (require 'autopair)
 
+(require 'guru-mode)
+(add-hook 'after-init-hook 'guru-global-mode)
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/"))
 (require 'pod-mode)
 (require 'folding)
