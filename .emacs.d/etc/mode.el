@@ -1,9 +1,6 @@
 ;; mode.el
 ;;
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/mode/rhtml-mode/"))
-
 ;;        'function         "file"                doc interactive   type(nil, keymap, macro)
 (autoload 'cperl-mode       "cperl-mode"          nil t)
 (autoload 'sgml-mode        "sgml-mode"           nil t)
