@@ -42,5 +42,4 @@
 
 (load-all "~/.emacs.d/etc")
 
-
-
+(cd "~")

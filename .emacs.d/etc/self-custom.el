@@ -7,6 +7,7 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
     '(Info-default-directory-list (append Info-default-directory-list '("~/.info")))
+    '(initial-buffer-choice t)
     '(auto-save-mode nil)                      ;; forbidden auto-save
     '(global-hl-line-mode t)                   ;; highlight current line
     '(delete-old-versions t)                   ;; kill all filename~
