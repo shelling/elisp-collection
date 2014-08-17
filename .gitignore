@@ -12,3 +12,4 @@ ede-projects.el
 .old
 .emacs.d/elpa/
 .emacs.d/url/
+.cask
