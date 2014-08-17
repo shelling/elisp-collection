@@ -30,6 +30,7 @@
 (depends-on "yasnippet")
 
 (depends-on "redo+")
+(depends-on "guru-mode")
 (depends-on "sr-speedbar")
 (depends-on "autopair")
 (depends-on "rect-mark")
