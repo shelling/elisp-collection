@@ -33,20 +33,20 @@
     '(ido-enable-flex-matching t)
     '(ido-everywhere t)
 
-    '(cperl-indent-level 4)
+    '(cperl-indent-level 2)
     '(cperl-hairy nil)
     '(cperl-electric-parens nil)
     '(cperl-electric-keywords nil)
     '(cperl-indent-parens-as-block t)
     '(cperl-close-paren-offset -4)
 
-    '(ruby-indent-level 4)
+    '(ruby-indent-level 2)
 
     '(scss-compile-at-save nil)
 
     '(haml-indent-offset 4)
 
-    '(puppet-indent-level 4)
+    '(puppet-indent-level 2)
 
     '(sgml-basic-offset 4)                     ;; for html-mode
 
