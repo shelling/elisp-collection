@@ -16,10 +16,6 @@
 (require 'guru-mode)
 (add-hook 'after-init-hook 'guru-global-mode)
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/plugins/"))
-(require 'pod-mode)
-(require 'folding)
-
 (defun load-all (name)
   (let ((type (car (file-attributes name))))
     (cond 
