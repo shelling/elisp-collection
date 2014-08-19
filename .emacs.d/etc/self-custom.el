@@ -73,14 +73,16 @@
  rcirc-default-full-name         "shelling ford")
 
 
-(defvar frame-setting '())
-
-(defvar frame-setting-cocoa
+(defun frame-setting-read ()
   (let ((json-object-type 'alist)
         (json-array-type 'list))
     (with-temp-buffer
       (insert-file-contents "~/.emacs.d/frame.json")
       (json-read))))
+
+(defvar frame-setting '())
+
+(defvar frame-setting-cocoa (frame-setting-read))
 
 (defvar frame-setting-linux
   '((top . 50)
