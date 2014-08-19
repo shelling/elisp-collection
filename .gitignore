@@ -12,4 +12,5 @@ ede-projects.el
 .old
 .emacs.d/elpa/
 .emacs.d/url/
+.emacs.d/frame.json
 .cask

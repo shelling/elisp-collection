@@ -76,12 +76,11 @@
 (defvar frame-setting '())
 
 (defvar frame-setting-cocoa
-  '((font . "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
-    (left . 140)
-    (top . 50)
-    (width . 120)
-    (height . 40)
-    (alpha . (95 95))))
+  (let ((json-object-type 'alist)
+        (json-array-type 'list))
+    (with-temp-buffer
+      (insert-file-contents "~/.emacs.d/frame.json")
+      (json-read))))
 
 (defvar frame-setting-linux
   '((top . 50)
