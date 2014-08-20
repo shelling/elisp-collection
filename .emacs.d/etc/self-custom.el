@@ -80,15 +80,11 @@
       (insert-file-contents "~/.emacs.d/frame.json")
       (json-read))))
 
-(defvar frame-setting '())
-
-(defvar frame-setting-cocoa (frame-setting-read))
+(defvar frame-setting (frame-setting-read))
 
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (progn
-      (if (string-match "apple-darwin" system-configuration)
-          (setq frame-setting frame-setting-cocoa))
       (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
       (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
       ))
@@ -96,8 +92,6 @@
 ;; for Linux
 (if (eq window-system 'x)
     (let ()
-     (setq frame-setting (frame-setting-read))
-
      (require 'ibus)
      (add-hook 'after-init-hook 'ibus-mode-on)
      ;; (setq ibus-agent-file-name "/usr/lib/ibus-el/ibus-el/agent")
