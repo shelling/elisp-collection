@@ -84,14 +84,6 @@
 
 (defvar frame-setting-cocoa (frame-setting-read))
 
-(defvar frame-setting-linux
-  '((top . 50)
-    (left . 30)
-    (width . 120)
-    (height . 45)
-    (alpha . (90 90))
-    (font . "Monospace-12")))
-
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
     (progn
@@ -104,7 +96,7 @@
 ;; for Linux
 (if (eq window-system 'x)
     (let ()
-     (setq frame-setting frame-setting-linux)
+     (setq frame-setting (frame-setting-read))
 
      (require 'ibus)
      (add-hook 'after-init-hook 'ibus-mode-on)
