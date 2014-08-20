@@ -80,7 +80,9 @@
       (insert-file-contents "~/.emacs.d/frame.json")
       (json-read))))
 
-(defvar frame-setting (frame-setting-read))
+(let ((frame-setting (frame-setting-read)))
+    (setq default-frame-alist frame-setting
+          initial-frame-alist frame-setting))
 
 ;; for Cocoa Emacs 23
 (if (and (>= emacs-major-version 23) (eq window-system 'ns))
@@ -99,9 +101,6 @@
      (global-set-key (kbd "M-SPC") 'ibus-toggle)
      ))
 
-(if frame-setting
-    (setq default-frame-alist frame-setting
-          initial-frame-alist frame-setting))
 
 
 (defalias 'perl-mode 'cperl-mode)
