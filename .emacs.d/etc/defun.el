@@ -1,19 +1,6 @@
 ;; defun.el
 ;;
 
-(if (and (>= emacs-major-version 23) (eq window-system 'ns))
-    (let ()
-      
-      (defun is-cocoa-emacs ()
-        "say I am Cocoa Emacs"
-        (interactive)
-        t
-        )
-      ;; more defun here
-
-      )
-  )
-
 (defun make-frame-default ()
   "reset frame height and width as the same as frame-setting"
   (interactive)
