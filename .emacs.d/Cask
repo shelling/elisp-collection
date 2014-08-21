@@ -56,4 +56,5 @@
 (depends-on "puppet-mode")
 (depends-on "scss-mode")
 (depends-on "rhtml-mode")
+(depends-on "pairs" :git "https://github.com/shelling/pairs.el.git")
 ;; (depends-on "")

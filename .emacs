@@ -12,6 +12,7 @@
 (require 'rect-mark)
 (require 'sr-speedbar)
 (require 'autopair)
+(require 'pairs)
 
 (require 'guru-mode)
 (add-hook 'after-init-hook 'guru-global-mode)
