@@ -17,6 +17,8 @@
     '(show-paren-mode t)
     '(autopair-global-mode t)
 
+    '(face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
+
     '(ibus-cursor-color '("#4EA4D9" "#EB6528" "#C9DE55"))
 
     '(split-height-threshold 30)               ;; 
@@ -64,6 +66,7 @@
     '(mac-command-modifier 'super))
 
 (set-face-attribute 'mode-line nil :box nil)
+(set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
 ;; (global-font-lock-mode t)
 
 (custom-set-faces)
@@ -85,13 +88,6 @@
 (let ((frame-setting (frame-setting-read)))
     (setq default-frame-alist frame-setting
           initial-frame-alist frame-setting))
-
-;; for Cocoa Emacs 23
-(if (and (>= emacs-major-version 23) (eq window-system 'ns))
-    (progn
-      (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
-      (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
-      ))
 
 (defalias 'perl-mode 'cperl-mode)
 
