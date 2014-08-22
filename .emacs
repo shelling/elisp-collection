@@ -35,8 +35,18 @@
 (global-set-key (kbd "M-]")             'next-multiframe-window)
 
 ;; line manipulating
-(global-set-key (kbd "M-k")             'backward-kill-line)
-(global-set-key (kbd "C-x j")           'join-line-below)
+(global-set-key
+ (kbd "M-k") ;; backward kill line
+ '(lambda ()
+    (interactive)
+    (kill-line 0)))
+
+(global-set-key
+ (kbd "C-x j") ;; join line below
+ '(lambda ()
+    (interactive)
+    (next-line)
+    (join-line)))
 
 ;; alignment
 (global-set-key (kbd "C-x a a")         'align)

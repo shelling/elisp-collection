@@ -9,11 +9,6 @@
   (set-frame-width nil
                    (cdr (assoc 'width frame-setting))))
 
-(defun backward-kill-line ()
-  "kill the characters to the start of one line"
-  (interactive)
-  (kill-line 0))
-
 (defun reload ()
   "reload ~/.emacs"
   (interactive)
@@ -24,13 +19,6 @@
   (interactive)
   (set-frame-width  nil 80)
   (set-frame-height nil 24))
-
-(defun join-line-below ()
-  "join current line and below line together without white space"
-  (interactive)
-  (next-line)
-  (join-line))
-
 
 (defun kill-buffer-and-frame ()
   "kill current buffer as well as close current frame immediately"
