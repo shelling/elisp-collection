@@ -17,6 +17,8 @@
     '(show-paren-mode t)
     '(autopair-global-mode t)
 
+    '(ibus-cursor-color '("#4EA4D9" "#EB6528" "#C9DE55"))
+
     '(split-height-threshold 30)               ;; 
     '(split-width-threshold 60)                ;;
 
@@ -90,18 +92,6 @@
       (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
       (setq face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
       ))
-
-;; for Linux
-(if (eq window-system 'x)
-    (let ()
-     (require 'ibus)
-     (add-hook 'after-init-hook 'ibus-mode-on)
-     ;; (setq ibus-agent-file-name "/usr/lib/ibus-el/ibus-el/agent")
-     (setq ibus-cursor-color '("#4EA4D9" "#EB6528" "#C9DE55"))
-     (global-set-key (kbd "M-SPC") 'ibus-toggle)
-     ))
-
-
 
 (defalias 'perl-mode 'cperl-mode)
 
