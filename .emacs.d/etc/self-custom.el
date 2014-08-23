@@ -77,14 +77,6 @@
  rcirc-default-nick              "shelling_emacs"
  rcirc-default-full-name         "shelling ford")
 
-
-(defun frame-setting-read ()
-  (let ((json-object-type 'alist)
-        (json-array-type 'list))
-    (with-temp-buffer
-      (insert-file-contents "~/.emacs.d/frame.json")
-      (json-read))))
-
 (let ((frame-setting (frame-setting-read)))
     (setq default-frame-alist frame-setting
           initial-frame-alist frame-setting))

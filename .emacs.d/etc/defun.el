@@ -1,24 +1,10 @@
 ;; defun.el
 ;;
 
-(defun make-frame-default ()
-  "reset frame height and width as the same as frame-setting"
-  (interactive)
-  (set-frame-height nil
-                    (cdr (assoc 'height frame-setting)))
-  (set-frame-width nil
-                   (cdr (assoc 'width frame-setting))))
-
 (defun reload ()
   "reload ~/.emacs"
   (interactive)
   (load-file (expand-file-name "~/.emacs")))
-
-(defun traditional-console-frame ()
-  "set height and width of frame to 80x24"
-  (interactive)
-  (set-frame-width  nil 80)
-  (set-frame-height nil 24))
 
 (defun kill-buffer-and-frame ()
   "kill current buffer as well as close current frame immediately"

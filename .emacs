@@ -13,6 +13,7 @@
 (require 'sr-speedbar)
 (require 'autopair)
 (require 'pairs)
+(require 'lazy-frame)
 
 (require 'guru-mode)
 (add-hook 'after-init-hook 'guru-global-mode)
