@@ -17,6 +17,9 @@
     '(show-paren-mode t)
     '(autopair-global-mode t)
 
+    '(default-frame-alist (frame-setting-read))
+    '(initial-frame-alist (frame-setting-read))
+
     '(face-font-rescale-alist '((".*LiHei_Pro.*" . 1.10)))
 
     '(ibus-cursor-color '("#4EA4D9" "#EB6528" "#C9DE55"))
@@ -76,10 +79,6 @@
                                     :channels ("#emacs" "#chupei.pm" "#shelling" "#perl.tw" "#dot")))
  rcirc-default-nick              "shelling_emacs"
  rcirc-default-full-name         "shelling ford")
-
-(let ((frame-setting (frame-setting-read)))
-    (setq default-frame-alist frame-setting
-          initial-frame-alist frame-setting))
 
 (defalias 'perl-mode 'cperl-mode)
 
