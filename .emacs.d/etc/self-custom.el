@@ -64,6 +64,22 @@
     '(speedbar-show-unknown-files t)
     '(truncate-lines t)
 
+    '(rcirc-server-alist
+      '(("irc.freenode.net"
+         :channels
+         ("#emacs"
+          "#chupei.pm"
+          "#shelling"
+          "#g0v.tw"
+          "#perl.tw"
+          "#haskell"
+          "#pegex"
+          "#bpan"
+          "#osdc.tw"
+          "#dot"))))
+    '(rcirc-default-nick "shelling_emacs")
+    '(rcirc-default-full-name "shelling ford")
+
     ;; '(cua-mode t nil (cua-base))               ;; using C-x, C-c, C-v to cut, copy and paste
     '(mac-option-modifier 'meta)               ;; set mac option as meta
     '(mac-command-modifier 'super))
@@ -73,12 +89,6 @@
 ;; (global-font-lock-mode t)
 
 (custom-set-faces)
-
-(setq
- rcirc-server-alist              '(("irc.freenode.net"
-                                    :channels ("#emacs" "#chupei.pm" "#shelling" "#perl.tw" "#dot")))
- rcirc-default-nick              "shelling_emacs"
- rcirc-default-full-name         "shelling ford")
 
 (defalias 'perl-mode 'cperl-mode)
 

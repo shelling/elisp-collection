@@ -97,6 +97,7 @@
 (autoload 'puppet-mode      "puppet-mode"         nil t)
 (autoload 'scss-mode        "scss-mode"           nil t)
 (autoload 'haml-mode        "haml-mode"           nil t)
+(autoload 'rcirc "rcirc" nil t)
 (autoload 'highlight-parentheses-mode
           "highlight-parentheses"
           "Minor mode to highlight the surrounding parentheses."
