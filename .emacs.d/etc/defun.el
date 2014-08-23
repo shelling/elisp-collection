@@ -54,24 +54,7 @@
       (sr-speedbar-select-window)
     nil))
 
-;; (defun replace-region-with-just-yanking ()
-;;   "replace region with last key ring"
-;;   (interactive)
-;;   (delete-region)
-;;   (yank))
-
 (defun transparency (value)
   "set transparency of the frame. 0=transparent, 100=opaque"
   (interactive "n 0 (transparent) - 100 (opaque): ")
   (set-frame-parameter (selected-frame) 'alpha value))
-
-(defun echo (expr)
-  "echo"
-  (interactive "sExpr: ")
-  (message (eval expr)))
-
-
-(defmacro inc (var)
-  ;; simple macro definition example
-  (list 'setq var (list '+ 1 var)))
-
