@@ -29,17 +29,6 @@
   (interactive)
   (byte-recompile-directory (expand-file-name "~/.emacs.d/") 0 t))
 
-
-;; __EXPERIMENTAL__
-(defun sr-speedbar-focus-toggle ()
-  (interactive)
-  (if (sr-speedbar-exist-p)
-      (sr-speedbar-close)
-    (sr-speedbar-open))
-  (if (sr-speedbar-exist-p)
-      (sr-speedbar-select-window)
-    nil))
-
 (defun transparency (value)
   "set transparency of the frame. 0=transparent, 100=opaque"
   (interactive "n 0 (transparent) - 100 (opaque): ")

@@ -54,7 +54,17 @@
 (global-set-key (kbd "C-x a c")         'align-current)
 (global-set-key (kbd "C-x a r")         'align-regexp)
 
-(global-set-key (kbd "C-x p")           'sr-speedbar-focus-toggle)
+(global-set-key
+ (kbd "C-x p") ;; sr-speedbar focus toggle
+ '(lambda ()
+    (interactive)
+    (if (sr-speedbar-exist-p)
+        (sr-speedbar-close)
+      (sr-speedbar-open))
+    (if (sr-speedbar-exist-p)
+        (sr-speedbar-select-window)
+      nil)))
+
 (global-set-key (kbd "C-x l")           'global-linum-mode)
 (global-set-key (kbd "C-x c")           'recompile-emacs.d)
 
