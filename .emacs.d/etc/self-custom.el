@@ -90,11 +90,4 @@
 
 (custom-set-faces)
 
-(defalias 'perl-mode 'cperl-mode)
-
-(prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
-
-(add-hook 'emacs-lisp-mode-hook
-          'highlight-parentheses-mode)
-
 (load-theme 'zenburn t)

@@ -1,5 +1,7 @@
 (package-initialize)
 
+(prefer-coding-system 'utf-8) ;; use utf8 as default file encoding
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
@@ -131,6 +133,11 @@
          ("osascript"                . applescript-mode)
          ("node"                     . javascript-mode)
          ("erl"                      . erlang-mode)))
+
+(add-hook 'emacs-lisp-mode-hook
+          'highlight-parentheses-mode)
+
+(defalias 'perl-mode 'cperl-mode)
 
 (defun load-all (name)
   (let ((type (car (file-attributes name))))
