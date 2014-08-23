@@ -85,12 +85,6 @@
 
 (prefer-coding-system 'utf-8)           ;; use utf8 as default file encoding
 
-(autoload 'highlight-parentheses-mode
-          "highlight-parentheses" 
-          "Minor mode to highlight the surrounding parentheses."
-          t
-          nil)
-
 (add-hook 'emacs-lisp-mode-hook
           'highlight-parentheses-mode)
 

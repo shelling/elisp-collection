@@ -97,6 +97,11 @@
 (autoload 'puppet-mode      "puppet-mode"         nil t)
 (autoload 'scss-mode        "scss-mode"           nil t)
 (autoload 'haml-mode        "haml-mode"           nil t)
+(autoload 'highlight-parentheses-mode
+          "highlight-parentheses"
+          "Minor mode to highlight the surrounding parentheses."
+          t
+          nil)
 
 (setq auto-mode-alist
       (append '(("\\.rb\\'"          . ruby-mode)
