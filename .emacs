@@ -120,6 +120,7 @@
                 ("\\.md$"            . markdown-mode)
                 ("\\.markdown$"      . markdown-mode)
                 ("\\.pp$"            . puppet-mode)
+                ("Cask"              . emacs-lisp-mode)
                 ("\\.pod$"           . pod-mode)
                 ("\\.t$"             . cperl-mode)
                 ("\\.p[lm]\\'"       . cperl-mode))
