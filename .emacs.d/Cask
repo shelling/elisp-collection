@@ -58,4 +58,5 @@
 (depends-on "rhtml-mode")
 (depends-on "pairs" :git "https://github.com/shelling/pairs.el.git")
 (depends-on "lazy-frame" :git "https://github.com/shelling/lazy-frame.el.git")
+(depends-on "load-recursive" :git "https://github.com/shelling/load-recursive.el.git")
 ;; (depends-on "")
