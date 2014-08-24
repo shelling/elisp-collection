@@ -169,6 +169,8 @@
  '(show-paren-mode t)
  '(autopair-global-mode t)
 
+ '(lazy-frame-json "~/.lazy-frame.json")
+
  '(yas-snippet-dirs (cons "~/.snippets" ;; construct from original value
                           (eval (car (get 'yas-snippet-dirs 'standard-value)))))
 
