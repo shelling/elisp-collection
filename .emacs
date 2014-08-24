@@ -157,6 +157,7 @@
                       ("marmalade" . "http://marmalade-repo.org/packages/")
                       ("melpa" . "http://melpa.milkbox.net/packages/")))
  '(Info-default-directory-list (append Info-default-directory-list '("~/.info")))
+ '(Info-additional-directory-list '("~/.info"))
  '(initial-buffer-choice t)
  '(global-font-lock-mode t)
  '(auto-save-mode nil)                      ;; forbidden auto-save
