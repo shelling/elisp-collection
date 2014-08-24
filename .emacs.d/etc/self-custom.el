@@ -17,6 +17,9 @@
     '(show-paren-mode t)
     '(autopair-global-mode t)
 
+    '(yas-snippet-dirs (cons "~/.snippets" ;; construct from original value
+                             (eval (car (get 'yas-snippet-dirs 'standard-value)))))
+
     '(default-frame-alist (frame-setting-read))
     '(initial-frame-alist (frame-setting-read))
 
