@@ -241,7 +241,4 @@
 
 (custom-set-faces)
 
-(require 'load-recursive)
-(recursive-load "~/.emacs.d/etc")
-
 (cd "~")
