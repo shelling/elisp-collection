@@ -243,4 +243,9 @@
 
 (custom-set-faces)
 
+(require 'load-recursive)
+(let ((local-lib "~/projects/local.el"))
+  (if (file-exists-p local-lib)
+      (recursive-load local-lib)))
+
 (cd "~")
