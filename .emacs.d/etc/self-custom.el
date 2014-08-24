@@ -8,6 +8,7 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
     '(Info-default-directory-list (append Info-default-directory-list '("~/.info")))
     '(initial-buffer-choice t)
+    '(global-font-lock-mode t)
     '(auto-save-mode nil)                      ;; forbidden auto-save
     '(global-hl-line-mode t)                   ;; highlight current line
     '(delete-old-versions t)                   ;; kill all filename~
@@ -89,8 +90,6 @@
 
 (set-face-attribute 'mode-line nil :box nil)
 (set-fontset-font "fontset-default" 'han '("LiHei_Pro" . "iso10646-1"))
-;; (global-font-lock-mode t)
-
 (custom-set-faces)
 
 (load-theme 'zenburn t)
