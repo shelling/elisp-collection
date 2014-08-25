@@ -2,7 +2,7 @@
 
 (prefer-coding-system 'utf-8) ;; use utf8 as default file encoding
 
-(require 'cask "~/.cask/cask.el")
+(require 'cask (and (file-exists-p "~/.cask/cask.el") "~/.cask/cask.el"))
 (cask-initialize)
 
 (require 'cl)
