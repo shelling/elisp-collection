@@ -17,9 +17,6 @@
 (require 'pairs)
 (require 'lazy-frame)
 
-(require 'guru-mode)
-(add-hook 'after-init-hook 'guru-global-mode)
-
 (when (require 'ibus nil :noerror)
   (add-hook 'after-init-hook 'ibus-mode-on)
   (global-set-key (kbd "M-SPC") 'ibus-toggle))
@@ -99,12 +96,16 @@
 (autoload 'puppet-mode      "puppet-mode"         nil t)
 (autoload 'scss-mode        "scss-mode"           nil t)
 (autoload 'haml-mode        "haml-mode"           nil t)
+(autoload 'guru-mode        "guru-mode"           nil t)
 (autoload 'rcirc "rcirc" nil t)
 (autoload 'highlight-parentheses-mode
           "highlight-parentheses"
           "Minor mode to highlight the surrounding parentheses."
           t
           nil)
+
+(add-hook 'after-init-hook
+          'guru-global-mode)
 
 (setq auto-mode-alist
       (append '(("\\.rb\\'"          . ruby-mode)
