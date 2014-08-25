@@ -21,7 +21,9 @@
   (add-hook 'after-init-hook 'ibus-mode-on)
   (global-set-key (kbd "M-SPC") 'ibus-toggle))
 
-;; BINDING SETTINGS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; BINDING SETTINGS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (global-unset-key (kbd "C-/"))       ;; unset C-/
 (global-unset-key (kbd "C-_"))       ;; unset C-_
@@ -83,7 +85,9 @@
 (global-set-key (kbd "S-C-<down>")      'shrink-window)
 (global-set-key (kbd "S-C-<up>")        'enlarge-window)
 
-;; MODE SETTINGS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MODE SETTINGS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;        'function         "file"                doc interactive   type(nil, keymap, macro)
 (autoload 'cperl-mode       "cperl-mode"          nil t)
