@@ -137,6 +137,9 @@
 (add-hook 'emacs-lisp-mode-hook
           'highlight-parentheses-mode)
 
+(add-hook 'markdown-mode-hook
+          'turn-on-auto-fill)
+
 (defalias 'perl-mode 'cperl-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -165,7 +168,8 @@
  '(delete-old-versions t)                   ;; kill all filename~
  '(make-backup-files nil)                   ;; not back up file into filename~
  '(completion-ignore-case t)
- '(default-fill-column 120)
+ '(default-fill-column 80)
+ '(fill-column 80)
  '(show-paren-mode t)
  '(autopair-global-mode t)
 
