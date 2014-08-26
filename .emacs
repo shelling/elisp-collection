@@ -3,7 +3,7 @@
 (prefer-coding-system 'utf-8) ;; use utf8 as default file encoding
 
 (require 'cask (and (file-exists-p "~/.cask/cask.el") "~/.cask/cask.el"))
-(cask-initialize)
+(cask-initialize (file-name-directory (file-symlink-p "~/.emacs")))
 
 (require 'cl)
 
