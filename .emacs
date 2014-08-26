@@ -211,20 +211,22 @@
  '(cperl-electric-parens nil)
  '(cperl-electric-keywords nil)
  '(cperl-indent-parens-as-block t)
- '(cperl-close-paren-offset -4)
+ '(cperl-close-paren-offset -2)
 
  '(ruby-indent-level 2)
 
+ '(js-indent-level 2)
+
  '(scss-compile-at-save nil)
 
- '(haml-indent-offset 4)
+ '(haml-indent-offset 2)
 
  '(puppet-indent-level 2)
 
- '(sgml-basic-offset 4)                     ;; for html-mode
+ '(sgml-basic-offset 2)                     ;; for html-mode
 
  '(indent-tabs-mode nil)                    ;; expand tab to set
- '(default-tab-width 4)                     ;; tab as 4 space
+ '(default-tab-width 2)                     ;; tab as 2 space
 
  '(sr-speedbar-right-side nil)
  '(speedbar-show-unknown-files t)
