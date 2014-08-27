@@ -227,6 +227,7 @@
 
  '(indent-tabs-mode nil)                    ;; expand tab to set
  '(default-tab-width 2)                     ;; tab as 2 space
+ '(tab-width 2)
 
  '(sr-speedbar-right-side nil)
  '(speedbar-show-unknown-files t)
