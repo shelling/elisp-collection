@@ -6,16 +6,17 @@
 (cask-initialize (file-name-directory (file-symlink-p "~/.emacs")))
 
 (require 'cl)
+(dolist (module
+         '(redo+ ;; need key mappings
+           rect-mark
+           sr-speedbar
+           autopair
+           pairs
+           lazy-frame))
+  (require module))
 
 (require 'yasnippet)
 (yas-global-mode 1)
-
-(require 'redo+)                         ; need key mapping
-(require 'rect-mark)
-(require 'sr-speedbar)
-(require 'autopair)
-(require 'pairs)
-(require 'lazy-frame)
 
 (when (require 'ibus nil :noerror)
   (add-hook 'after-init-hook 'ibus-mode-on)
